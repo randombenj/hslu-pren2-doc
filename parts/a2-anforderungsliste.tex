@@ -1,0 +1,107 @@
+\section{Anforderungsliste}
+\label{sec:anforderungsliste}
+Die nachfolgende Tabelle \ref{tab:anforderungsliste} listet alle Anforderungen an den autonomen Baugerüstroboter auf. Hierbei wird zwischen Fest-, Mindest- und Wunschanforderungen unterschieden. Weiter werden die Anforderungen in Funktionelle und nicht Funktionelle unterteilt. Zudem wurden den Anforderungen eine Priorität und ein Komplexitäts-Level zugeteilt. Hierbei entspricht eine 1 dem höchsten Wert. Z.B. wurde der Anforderung autonomes Fahren die Priorität 1 als auch die Komplexität 1 zugeordnet. Das heisst, es hat höchste Priorität und höchste Komplexität.
+\begin{items}
+  \item {\bf F} = Festanforderung
+  \item {\bf M} = Mindestanforderung
+  \item {\bf W} = Wunschanforderung
+\end{items}
+
+\scriptsize
+\begin{longtable}[]{@{}lllp{2cm}p{5cm}llp{2cm}@{}}
+%\toprule
+\textbf{Nr.} & \textbf{Kat.} & \textbf{Prio} & \textbf{Bezeichnung}
+& \textbf{Erläuterung} & \textbf{Verantwortlich} & \textbf{Complexity} &
+\textbf{Typ}\tabularnewline
+%\midrule
+\endhead
+
+1.1 & F & 1 & Fahrzeug aus Eigenkonstruktion &
+Fahrzeug muss selbst entwickelt
+werden. Komponenten wie Sensoren, Servos, Kameras dürfen
+verwendet werden. & Alle & 2 & nicht \hbox{funktionell}\tabularnewline
+
+1.2 & F & 1 & Autonomes Fahren & Unter allen zu erwartenden Licht- und
+Umgebungsbedingungen & I / E & 1 & funktionell\tabularnewline
+
+1.3 & F & 2 & Start & Start via Startknopf & I / E & 3 &
+funktionell\tabularnewline
+
+1.4 & F & 3 & Witterungsbeständigkeit & \vtop{\hbox{\strut -
+Windresistent}\hbox{\strut - Regenresistent}\hbox{\strut -
+Sonnenresistent}\hbox{\strut - Schmutzresistent}} & E / M & 3 &
+funktionell\tabularnewline
+
+1.5 & M & 2 & Spritzwasserfest / Schmutzresistez & IP24 & E / M & 2 &
+funktionell\tabularnewline
+
+1.6 & M & 2 & Erschütterungsresistenz & Die Komponenten funktionieren
+auch bei Erschütterung des Fahrzeugs. & Alle & 2 &
+funktionell\tabularnewline
+
+1.7 & M & 3 & Betriebstemperatur & Fahrzeug funktioniert bei
+Aussentemperaturen von 5\textdegree C bis 35\textdegree C. & E & 3 &
+funktionell\tabularnewline
+
+1.8 & M & 1 & Umgebungserkennung & \vtop{\hbox{\strut - Markierung am
+Boden des Startfeldes}\hbox{\strut - Piktogramm erkennen (20x20
+cm)}\hbox{\strut - Treppe finden}\hbox{\strut - Hindernisse
+erkennen}\hbox{\strut - Zielplattform erkennen}\hbox{\strut - Darf das
+Geländer nicht berühren}} & I & 1 & funktionell\tabularnewline
+
+1.9 & F & 1 & Hinderniss-Kollision & Hindernisse dürfen berührt, aber
+nicht verschoben werden. & Alle & 2 & funktionell\tabularnewline
+
+1.10 & F & 2 & Spielfeldboden & Fahrzeug kann folgendes Terrain
+befahren: Holzboden, Baugerüst & M & 3 & funktionell\tabularnewline
+
+1.11 & M & 1 & Stufen erklimmen & Das Fahrzeug kann 5 - 10 Stufen
+(Tritthöhe: 20 cm, Tritttiefe: 30 cm) erklimmen. & E / M & 1 &
+funktionell\tabularnewline
+
+1.12 & F & 2 & Fahrzeugabmessung maximal 40x40cm & Fahrzeugabmessung darf
+im Startzustand nicht grösser als 40x40 cm sein. Im Fahrzustand darf es
+grösser sein. & Alle & 3 & nicht \hbox{funktionell}\tabularnewline
+
+1.13 & F & 3 & Maximale Höhe & Maximal 100cm vom Boden entfernt & M & 3
+& funktionell\tabularnewline
+
+1.14 & F & 1 & Kommunikation mit Publikum &
+Fahrzeug quittiert Auftrag sinnvoll und
+erkennbar- Fahrzeug meldet, wenn gesuchtes Objekt
+gefunden & I / E & 2 & funktionell\tabularnewline
+
+1.15 & F & 3 & Fahrzeit & max. 4min & Alle & 2 &
+funktionell\tabularnewline
+
+1.16 & F & 3 & Lernfahrt & 2min vor Startbeginn für Vorbereitungen &
+Alle & 3 & funktionell\tabularnewline
+
+1.17 & M & 3 & Mobile Energiequelle & Das Fahrzeug muss fähig sein 2
+Läufe zu absolvieren. (2x4min Laufzeit + 2x2min Vorbereitung = 12min) & E &
+2 & funktionell\tabularnewline
+
+1.18 & F & 2 & Gesamtbudget & max. 500 CHF & Alle & 2 & nicht
+\hbox{funktionell}\tabularnewline
+
+1.19 & F & 2 & Budget PREN1 & max. 200 CHF & Alle & 2 & nicht
+\hbox{funktionell}\tabularnewline
+
+1.20 & F & 2 & Keine Raupenfahrzeuge & Das Gerät darf fahren, schreiten,
+rutschen, klammern, krabbeln, schweben oder auch tief fliegen. & Alle &
+3 & funktionell\tabularnewline
+
+1.21 & W & 3 & Gewicht & 3 kg (ungefährer Wert aus vergangenen
+PREN-Projekten) & M & 2 & nicht \hbox{funktionell}\tabularnewline
+
+1.22 & M & 2 & End-Position & Gerät muss automatisch stoppen und sich
+vollständig auf dem Podest befinden. & I & 2 &
+funktionell\tabularnewline
+
+1.23 & W & 3 & Not-Aus-Taster & Das Gerät soll mit einem Not-Aus Taster
+sofort gestoppt werden können. & E / I & 3 & funktionell\tabularnewline
+\caption{Anforderungskatalog}
+\label{tab:anforderungsliste}
+%\bottomrule
+\end{longtable}
+\normalsize

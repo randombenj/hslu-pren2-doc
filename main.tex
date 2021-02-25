@@ -1,0 +1,107 @@
+\documentclass[oneside]{modern}
+\title{Produktentwicklung 1}
+\author{
+\begin{tabular}{ l l l}
+  \textbf{Gruppe 5} && \\
+  Burch Sven & <sven.burch@stud.hslu.ch> & Maschinentechnik\\
+  Fassbind Benjamin & <benjamin.fassbind@stud.hslu.ch> & Informatik \\
+  Jacob Yves & <yves.jacob@stud.hslu.ch> & Elektrotechnik\\
+  Meier Boas & <boas.meier@stud.hslu.ch> & Informatik\\
+  Paradiso Simone & <simone.paradiso@stud.hslu.ch> & Elektrotechnik \\
+  Roos Yannick & <yannick.roos@stud.hslu.ch> & Elektrotechnik \\
+  \\
+  \textbf{Betreuender Dozent} && \\
+  Sollberger Peter & <peter.sollberger@hslu.ch> & Informatik \\
+  \\
+  \\
+  \\
+  TA.BA\_PREN1.HS2001 &&\\
+\end{tabular}
+}
+
+
+\newcommand{\sectionnumbering}[1]{%
+  \setcounter{section}{0}%
+   \renewcommand{\thesection}{\csname #1\endcsname{section}}}
+
+\usepackage{etoc}
+\etocsettocstyle
+    {\section *{\contentsname
+%                \@mkboth {\MakeUppercase \contentsname}
+%                         {\MakeUppercase \contentsname}
+         }
+         }
+    {}   
+    
+\begin{document}
+
+   % magic * chapter starts at 1 :) 
+   \renewcommand{\thesection}{\arabic{section}}
+   % also break urls
+   \makeatletter
+   \g@addto@macro{\UrlBreaks}{\UrlOrds}
+   \makeatother
+   
+   %\textcolor{light-gray}{\rule{\linewidth}{1pt}}
+
+   %\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+  % Print whole bibliographie
+  \nocite{*}
+
+  \firstpage
+    {Autonomer Baugerüst-Roboter}
+    {Hochschule Luzern - Technik und Architektur}
+    {\theauthor}
+
+\subfile{parts/Redlichkeiterklärung.tex}
+  \subfile{parts/management_summary.tex}
+  
+  \newpage
+  \etocdepthtag.toc{mtchapter}
+  \etocsettagdepth{mtchapter}{subsection}
+  \etocsettagdepth{mtappendix}{none}
+  \addtableofcontents
+  
+  \newpage
+  \listoffigures
+  
+  \newpage
+  \listoftables
+
+  \newpage
+  
+  \subfile{glossary.tex}
+
+  % ------------------------------------------------------------------------------
+  % Assemble the document with the multiple parts
+  
+  \subfile{parts/0-doc-info}
+  \subfile{parts/1-einleitung}
+  \subfile{parts/2-aufgabenstellung}
+  \subfile{parts/3-konzept}
+  \subfile{parts/4-funktionsmuster}
+  \subfile{parts/5-vorgehen}
+  \subfile{parts/6-schlussdiskussion}
+
+  \newpage
+  \addglossary
+
+  % Literaturverzeichnis
+  \newpage
+  \addcontentsline{toc}
+    {section}
+    {Literatur}
+
+  \printbibliography[
+    heading=subbibliography
+  ]
+
+  % Anhang
+  \addcontentsline{toc}
+    {section}
+    {Anhang}
+    
+  \subfile{parts/anhang}
+
+\end{document}
