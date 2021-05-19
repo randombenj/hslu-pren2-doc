@@ -1,13 +1,13 @@
 \documentclass[oneside]{modern}
-\title{Produktentwicklung 1}
+\title{Produktentwicklung 2}
 \author{
 \begin{tabular}{ l l l}
   \textbf{Gruppe 5} && \\
   Burch Sven & <sven.burch@stud.hslu.ch> & Maschinentechnik\\
+  Burri Sven & <sven.burri@stud.hslu.ch> & Maschinentechnik \\
   Fassbind Benjamin & <benjamin.fassbind@stud.hslu.ch> & Informatik \\
   Jacob Yves & <yves.jacob@stud.hslu.ch> & Elektrotechnik\\
   Meier Boas & <boas.meier@stud.hslu.ch> & Informatik\\
-  Paradiso Simone & <simone.paradiso@stud.hslu.ch> & Elektrotechnik \\
   Roos Yannick & <yannick.roos@stud.hslu.ch> & Elektrotechnik \\
   \\
   \textbf{Betreuender Dozent} && \\
@@ -15,7 +15,7 @@
   \\
   \\
   \\
-  TA.BA\_PREN1.HS2001 &&\\
+  TA.BA\_PREN2.HS2001 &&\\
 \end{tabular}
 }
 
@@ -33,6 +33,13 @@
          }
     {}   
     
+% ref packages
+\usepackage{nameref}
+% folowing  must be in this order
+\usepackage{varioref}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
 \begin{document}
 
    % magic * chapter starts at 1 :) 
@@ -54,8 +61,8 @@
     {Hochschule Luzern - Technik und Architektur}
     {\theauthor}
 
-\subfile{parts/Redlichkeiterklärung.tex}
-  \subfile{parts/management_summary.tex}
+  \subfile{parts/0-Redlichkeiterklärung.tex}
+  %\subfile{parts/management_summary.tex}
   
   \newpage
   \etocdepthtag.toc{mtchapter}
@@ -77,12 +84,19 @@
   % Assemble the document with the multiple parts
   
   \subfile{parts/0-doc-info}
-  \subfile{parts/1-einleitung}
-  \subfile{parts/2-aufgabenstellung}
-  \subfile{parts/3-konzept}
-  \subfile{parts/4-funktionsmuster}
-  \subfile{parts/5-vorgehen}
+  \subfile{parts/1-Einleitung}
+  \subfile{parts/2-Aufgabenstellung}
+  \subfile{parts/3-Hauptteil}
+  %\subfile{parts/softwarearchitektur}
+  %\subfile{parts/piktogrammerkennung}
+  %\subfile{parts/hinderniserkennung.tex}
+  %\subfile{parts/embedded-linux-workflow.tex}
+  \subfile{parts/4-VergleichFunktionsmuster}
+  \subfile{parts/4.1-Bedienungsanleitung}
+  \subfile{parts/5-Vorgehen}
   \subfile{parts/6-schlussdiskussion}
+  
+
 
   \newpage
   \addglossary
@@ -98,7 +112,7 @@
   ]
 
   % Anhang
-  \addcontentsline{toc}
+  %\addcontentsline{toc}
     {section}
     {Anhang}
     

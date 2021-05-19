@@ -1,4 +1,5 @@
 \newpage
+
 \sectionnumbering{Roman}
 \chapter*{Anhang}
 \etocdepthtag.toc{mtappendix}
@@ -6,14 +7,32 @@
 \etocsettagdepth{mtappendix}{subsection}
 \addtableofcontents
 
-\subfile{parts/a1-aufgabenstellung}
-\subfile{parts/a2-anforderungsliste}
-\subfile{parts/a3-technologierecherche}
-\subfile{parts/a4-erste-evaluation}
-\subfile{parts/a5-zweite-evaluation}
-\subfile{parts/a6-zusaetzliche-evaluation}
-\subfile{parts/a7-berechnungen}
-\subfile{parts/a8-arbeitsjournal}
+\section*{Yes/No Classification Sliding Window} \label{sec:r-cnn-paper}
+
+\includepdf[
+  pages={1-},
+  scale=0.9,
+  pagecommand={\pagestyle{fancy}}
+]{assets/yes-no-classification-sliding-window.pdf}
+
+
+\section*{Detectron2 / ONNX Inference Performance Tests} \label{sec:cnn-perf-test}
+
+\includepdf[
+  pages={1-},
+  scale=0.9,
+  pagecommand={\pagestyle{fancy}}
+]{assets/detectron2-onnx.pdf}
 
 
 
+
+
+
+
+%\subfile{parts/a1-aufgabenstellung}
+%\subfile{parts/a2-anforderungsliste.tex}
+%\subfile{parts/a3-übersichtszeichnung}
+%\subfile{parts/a4-stückliste.tex}
+%\subfile{parts/a5-fertigungsunterlagen.tex}
+%\subfile{}

@@ -1,0 +1,145 @@
+\newpage
+\section{Schlussdiskussion}
+
+In diesem Bereich werden die Kosten für die Umsetzung und Entwicklung des Prototypen aufgelistet. Dabei werden die finanziellen Kosten aber auch der zeitliche Aufwand betrachtet. Zudem wird im Bereich "Lessons learned" aufgezeigt, was in diesem Projekt für Erfahrungen mitgenommen werden können. Ein kurzer Ausblick beendet diesen Teilbereich der Dokumentation.
+
+\subsection{Entwicklungskosten}
+
+Im Pren1 wurden bereits zwei Zahnriemen für die Realisierung des ersten Funktionsmusters angeschafft. Die restlichen Kosten sind im Pren2 entstanden und werden nachfolgend aufgeführt.
+
+\begin{center}
+\centering
+\begin{table}[H]
+\begin{tabular}{|l|r|r|r|}
+\hline 
+\textbf{Bezeichnung} & \textbf{Anzahl} &
+\textbf{Stückpreis [CHF]} & \textbf{Gesamtkosten [CHF]} \\
+\hline 
+Motor 1 & 1 & 39.00 & 39.00 \\
+\hline
+Motor 2 & 1 & 21.00 & 21.00 \\
+\hline
+H-Brücke T & 1 & 10.00 & 10.00\\
+\hline
+Zahnriemen für Prototyp & 1 & 5.00 & 5.00 \\
+\hline
+Mikro Switch & 2 & 2.60  & 5.20\\
+\hline
+Antriebssystem & 2 & 18.00  & 36.00\\
+\hline
+H-Brücke F & 1 & 3.00 & 3.00 \\
+\hline
+Raspberry Pi 3 & 1 & 40.00 & 40.00 \\
+\hline
+Pi-Kamera & 1 & 30.00 & 30.00 \\
+\hline
+\acrshort{tof} Sensor 1 & 2 & 12.30 & 24.60 \\
+\hline
+Ultraschallsensor & 2 & 2.50 & 5.00 \\
+\hline
+DCDC Converter & 1 & 40.00 & 40.00 \\
+\hline
+\acrshort{tof} Sensor 2 & 1 & 10.00 & 10.00 \\
+\hline
+Akkupack & 1 & 24.00  & 24.00 \\
+\hline
+Lautsprecher & 1 & 3.00 & 3.00\\
+\hline 
+Zahnriemen & 2 & 21.00 & 42.00\\
+\hline
+Zahnriemenräder & 4 & 12.00 & 48.00\\
+\hline
+div. Zahnräder & 8 & - & 110.00\\
+\hline \hline 
+ \textbf{Subtotal} &&& \textbf{CHF 495.80}\\
+\hline 
+\end{tabular}
+\caption[Entwicklungskosten]{Entwicklungskosten}
+\label{tab:kosten}
+\end{table}
+\end{center}
+
+\newpage
+
+\subsection{Entwicklungsaufwand}
+
+In den Entwicklungsaufwand wird nicht nur die Arbeit am Prototypen eingerechnet, sondern auch die aufgewendete Zeit für weitere Recherche und Tests ohne Roboter.
+Nachfolgend ist diese Auflistung dargestellt.
+
+\begin{center}
+\begin{table}[H]
+\begin{tabular}{|l|r|r|r|r|}
+\hline
+\textbf {Was} & \textbf{Aufwand [h]} &
+\textbf{Anzahl Personen} & \textbf{Anzahl Wochen} & \textbf{Subtotal [h]}\\
+\hline
+Pren Block Donnerstag & 3 & 6 & 14 & 252 \\
+\hline
+Pren Block Freitag & 3 & 6 & 14 & 252 \\
+\hline
+Freizeitaufwand (E) & 1 & 3 & 14 & 42 \\
+\hline
+Freizeitaufwand (I) & 1.5 & 2 & 14 & 42 \\
+\hline
+Freizeitaufwand (M) & 3 & 1 & 14 & 42 \\
+\hline
+Total: & & & & 630 \\ \hline
+\end{tabular}
+\caption[Entwicklungsaufwand]{Entwicklungsaufwand}
+\label{tab:entwicklungsaufwand}
+\end{table}
+\end{center}
+
+\subsection{Lessons Learned}
+
+Ein Projekt der Grösse von Pren2 ist für das gesamte Team ein Novum. Dabei konnten viele Dinge gelernt werden, welche sich ausschliesslich auf Arbeiten an einem Prototypen beziehen.
+
+
+
+
+\subsection{Kritische Würdigung der Arbeit}
+
+
+
+
+\subsection{Offene Punkte, Risiken, Ausblick}
+
+TODO: Offene Punkte
+
+\newpage
+
+\subsubsection{Ausblick}
+
+TODO: Ausblick?
+
+
+\subsubsection{Risiken}
+Mithilfe eines konsequenten Risikomanagementes können viele Risiken drastisch minimiert werden. Im Pren2 traten viele Risiken auf welche bearbeitet und entschärft werden mussten. In der anschliessenden Tabelle sind die problematischten Risiken zu finden. Die vollständige, iterativ/inkrementell erstellte, Risikoliste mit Korrekturmassnahmen ist im Anhang zu finden.
+
+\begin{center}
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{|l|X|X|}
+        \hline
+        \textbf{ID} & \textbf{Titel} & \textbf{Vorbeugende Massnahmen} \\ \hline
+        R15 & Anschlag bei Drehbewegung in der Nähe eines Hindernisses bei minimalem Durchgang von 400 mm. & Lösungskonzept erarbeiten oder Dimension so wählen, dass Rotation immer möglich ist. \\ \hline
+        R18 & Hindernisse werden nicht erkannt & Früh im PREN2 testen und Lichtverhältnisse miteinkalkulieren. \\ \hline
+        R17 & Nicht alle Aspekte bei der Berechnung der Hubbewegung miteinkalkuliert. Hubbewegung funktioniert nicht. & Möglichst früh in \acrshort{pren2}, die Hubbewegung testen.\\ \hline
+    \end{tabularx}
+    \caption{Top 3 Risiken in Hinsicht auf PREN2}
+    \label{tab:risikomanagement-ausblick}
+\end{table}
+\end{center}
+
+Ein weiteres nicht technisches Risiko ist der Wissensverlust, da ein Teammitglied im \acrshort{pren2} nicht mehr dabei sein wird. Um diese Gefahr zu minimieren werden die Erfahrungen und das Wissen stetig ausgetauscht. Mit diesem Risiko geht einher, dass sich, falls eine neue Person dem Projekt beitritt, das neue Teammitglied bestmöglich in das existierende Projekt einarbeiten und somit effizient mitwirken kann.
+
+
+
+
+
+
+
+
+
+
+
+

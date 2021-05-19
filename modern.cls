@@ -218,7 +218,7 @@
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 
 \lhead{\textbf{Hochschule Luzern} \newline 
-PREN 1}
+PREN 2}
 %\rhead{
 %  \bf\small\nouppercase\rightmark
 %}
