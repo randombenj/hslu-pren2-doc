@@ -1117,7 +1117,7 @@ Ansatz eines vereinfachten \acrshort{r-cnn} mit Stufenerkennungs Feature enginee
 
 Die Resultate konnten weder die erwartete Performanz noch Genauigkeit zufriedenstellen.
 Das Paper dazu kann auf GitHub \footnote{
-https://github.com/randombenj/hslu-pren/blob/a987e1c53f3b44a86b42ca3030afb1f12880d94c/pren1/research/yes-no-classification-sliding-window.ipynb} und im Anhang gefunden werden \ref{sec:r-cnn-paper}.
+https://github.com/randombenj/hslu-pren/blob/a987e1c53f3b44a86b42ca3030afb1f12880d94c/pren1/research/yes-no-classification-sliding-window.ipynb} gefunden werden \ref{sec:r-cnn-paper}.
 
 
 \subsubsection{Detectron2}
@@ -1126,24 +1126,15 @@ Detectron2 \cite{wu2019detectron2} ist ein State of the Art Framework für Objek
 Es werden verschiedene \acrshort{r-cnn} Models zur verfügung gestellt. \footnote{
 https://github.com/facebookresearch/detectron2/blob/master/MODEL\_ZOO.md\#coco-object-detection-baselines
 }
-Zudem bietet Detectron2 eine sehr einfache Möglichkeit mittels Transfer Learning \footnote{https://colab.research.google.com/drive/16jcaJoc6bCFAQ96jDe2HwtXj7BMD_-m5\#scrollTo=b2bjrfb2LDeo}
+Zudem bietet Detectron2 eine sehr einfache Möglichkeit mittels Transfer Learning \footnote{\url{https://colab.research.google.com/drive/16jcaJoc6bCFAQ96jDe2HwtXj7BMD_-m5#scrollTo=b2bjrfb2LDeo}}
 einen eigenen Datensatz, bestehend auf dem vortrainierten Gewichten der Features zu trainieren.
 Somit ist es möglich mit wenigen hundert Bildern neue Objekte zu erkennen.
 
-\subsubsection{ONNX}
-
-ONNX \footnote{https://github.com/onnx/onnx} ist ein Open Source Standard für Machine Learning
-interoperability. Das heisst, ein Model welches mit Detectron2 (welches auf Pytorch basiert) trainiert
-wurde, kann als ONNX format exportiert werden.
-Dadurch, dass \acrshort{CNN} aus gewichteten Matrixoperationen bestehen, werden diese in das ONNX Format
-exportiert und können danach mit einer Optimierten Inference Runtime ausgeführt werden.
-
 \subsubsection{Performance Testing}
 
-Um zu sehen ob ein Raspberry Pi solch komplexes \acrshort{CNN} überhaupt berechnen kann, oder ob ein
+Um zu sehen ob ein Raspberry Pi solch komplexes \acrshort{cnn} überhaupt berechnen kann, oder ob ein
 Leistungsfähigeres Compute Board gekauft werden muss, wurden Performance Tests durchgeführt.
-Das setup für die Performance tests kann auf GitHub \footnote{https://github.com/randombenj/detectron2onnx-inference/blob/master/detectron2-onnx.ipynb} oder im Anhang
-gefunden werden.
+Das setup für die Performance tests kann auf GitHub \footnote{\url{https://github.com/randombenj/detectron2onnx-inference/blob/master/detectron2-onnx.ipynb}} gefunden werden.
 
 Für die Performance Tests wurden drei Controller angeschaut, die Controller konnten ausgeliehen werden.
 
@@ -1158,7 +1149,7 @@ Das Jetson TX1 (unten), Jetson Nano (oben mitte) und das Raspberry Pi (oben rech
 }
 
 Die Performance tests wurden mit dem oben genannten Notebook gemacht, zusätzlich wurde die Zeit für die
-Inference gemessen. Die Resultate haben (ohne ONNX optimierung) eine Inference Zeit ergeben voné
+Inference gemessen. Die Resultate haben eine Inference Zeit ergeben von:
 
 \begin{itemize}
     \item {\bf Raspberry Pi}  ~500s
@@ -1166,8 +1157,8 @@ Inference gemessen. Die Resultate haben (ohne ONNX optimierung) eine Inference Z
     \item {\bf Jetson TX1} ~2s
 \end{itemize}
 
-Zwar konnte mit ONNX optimierung beim Raspberry Pi eine Inference Zeit von ~20s erreicht werden, 
-dann sind aber alle vier CPU Kerne zu 100\% für 20s ausgelastet.
+Zwar konnte mit optimierung (durch das einsetzen von ONNX)\footnote{https://onnx.ai/} beim Raspberry Pi eine Inference Zeit von ~20s erreicht werden, 
+dann sind aber alle vier CPU Kerne zu 100\% für die gesammte Zeit ausgelastet.
 
 Da die Nvidia Boards jeweils über eine Maxwell GPU verfügen und diese auch mit CUDA \footnote{https://developer.nvidia.com/cuda-zone}
 für Machine Learning verwendet werden kann, wurde entschieden, das Jetson Nano anstatt das ursprünglich geplante
@@ -1180,7 +1171,7 @@ Bei den detectron2 \acrshort{cnn} Modellen kann bereits vor trainiertes Neuronal
 verwendet werden. Dieses kann danach mit wenigen hundert Bildern via Transfer Learning \footnote{https://en.wikipedia.org/wiki/Transfer\_learning}
 auf ein eigenes Datenset angepasst werden.
 
-Den vorgang kann man sich so vorstellen, dass das Modell verschiedene, häufig vorkommende Formen wie Kreise, Vierecke, ...
+Den Vorgang kann man sich so vorstellen, dass das Modell verschiedene, häufig vorkommende Formen wie Kreise, Vierecke, ...
 bereits kennt und man durch das Datenset dem Modell beibringt was eine Treppenstufe oder ein Ziegelstein ist.
 
 \subsubsection{Sammeln von Trainingsdaten}
@@ -1190,7 +1181,7 @@ Im Kartonprototypen wurde die Kamera auf der gleichen Höhe und im gleichen Wink
 wie im endgerät.
 Mithilfe der App auf dem gerät, konnten über das Smartphone einfach Bilder aufgenommen werden.
 
-Die Bilder wurden in einer Auflösung von 720x960px aufgenommen. Ziel war es etwa 300 Bilder zu sammeln um für das \acrshort{CNN} zu annotieren.
+Die Bilder wurden in einer Auflösung von 720x960px aufgenommen. Ziel war es etwa 300 Bilder zu sammeln um für das \acrshort{cnn} zu annotieren.
 
 \image{img/CNN/pren-image-capture}{
 Aufnahme der Trainingsdaten für die Hinderniserkennung
@@ -1202,10 +1193,99 @@ Die Trainingsdaten wurden nach dem Aufnehmen mithilfe von COCO Annotator \footno
 Dabei wurden zwei Klassen verwendet: {\it Brick} und {\it Stair}.
 
 \image{img/CNN/coco-stair}{
-Annotieren der Trainingsdaten im COCO Datenformat \footnote{https://cocodataset.org/#format-data}.
+Annotieren der Trainingsdaten im COCO Datenformat \footnote{\url{https://cocodataset.org/#format-data}}.
 }
 
+\subsubsection{Trainieren des \acrshort{cnn}}
 
+Als vorlage für das Trainieren wurde das offizielle Notebook von detectron2 verwendet. \cite{detectron2-colab}
+
+Um das \acrshort{cnn} zu trainieren und auch die Performance zu evaluieren, werden die annotierten Trainingsdaten
+in Train- (70\%), Test- (20\%) und Validationsset (10\%) unterteilt.
+
+Die Trainingsdaten dienen dazu das Model zu trainieren, mit den Testdaten werden die Hyperparameter\footnote{\url{https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)}} verfeinert und
+mit dem Validationsset wird am schluss die Performance des \acrshort{cnn} gemessen.
+
+Die verschiedenen Datensätze werden dem detectron2 trainer bekanntgegeben:
+
+\begin{minted}{python}
+from detectron2.data.datasets import register_coco_instances
+
+DatasetCatalog.clear()
+
+register_coco_instances("stair_train", {}, "stair-train.coco.json", "stair/")
+register_coco_instances("stair_test", {}, "stair-test.coco.json", "stair/test/")
+register_coco_instances("stair_validation", {}, "stair-validation.coco.json", "stair/validation/")
+\end{minted}
+
+Das Model wurde wie folgt vorkonfiguriert:
+
+\begin{minted}{python}
+model_config = "COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml"
+
+cfg = get_cfg()
+
+cfg.merge_from_file(model_zoo.get_config_file(model_config))
+cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5  # set threshold for this model
+
+# Use the pretrained model for transfer learning
+cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url(model_config)
+
+cfg.INPUT.MAX_SIZE_TRAIN = 480
+cfg.INPUT.MAX_SIZE_TEST = 480
+
+cfg.OUTPUT_DIR = '480_output'
+cfg.DATASETS.TRAIN = ("stair_train",)
+cfg.DATASETS.TEST = ("stair_test",)
+
+cfg.DATALOADER.NUM_WORKERS = 2
+cfg.SOLVER.IMS_PER_BATCH = 2
+cfg.SOLVER.BASE_LR = 0.02
+cfg.SOLVER.MAX_ITER = 900
+
+cfg.MODEL.ROI_HEADS.NUM_CLASSES = 2  #  classes (stair, brick)
+\end{minted}
+
+Nun kann das Model trainiert werden:
+
+\begin{minted}{python}
+trainer = DefaultTrainer(cfg)
+trainer.resume_or_load(resume=False)
+trainer.train()
+\end{minted}
+
+\image{img/CNN/loss-accuracy}{
+Die accuracy und loss Graphen Zeigen die Performance des Models während der Trainingsphase an.
+}
+
+\subsubsection{Model Performance}
+
+Un die Perofmance des Models zu messen, werden die 'Truely unseen Validationdata' verwendet:
+
+\begin{minted}{python}
+from detectron2.data import DatasetCatalog, MetadataCatalog, build_detection_test_loader
+from detectron2.evaluation import COCOEvaluator, inference_on_dataset
+
+evaluator = COCOEvaluator("stair_validation", cfg, False, output_dir="./output/")
+val_loader = build_detection_test_loader(cfg, "stair_validation")
+
+inference_on_dataset(trainer.model, val_loader, evaluator)
+\end{minted}
+
+Dabei werden die Validationsdaten durch das Model Annotiert und danach mit den 'Ground Truth' Daten 
+(also den Manuellen Annotations) verglichen. Dies ergibt danach einen Performance Report.
+
+\begin{minted}{text}
+|   AP   |  AP50  |  AP75  |  APs   |  APm   |  APl   |
+|:------:|:------:|:------:|:------:|:------:|:------:|
+| 66.725 | 99.922 | 81.624 | 50.000 | 65.073 | 72.456 |
+\end{minted}
+
+\begin{minted}{text}
+| category   | AP     | category   | AP     |
+|:-----------|:-------|:-----------|:-------|
+| stair      | 68.920 | brick      | 64.530 |
+\end{minted}
 
 \section{Embedded Linux Workflow}
 In den nachfolgenden Abschnitten wird kurz vorgestellt, wie der Entwicklungsprozess mit dem Jetson Nano optimiert werden konnte. Der Entwicklungsprozess mit dem Raspberry Pi in den ersten zwei Sprints war im Grunde sehr ähnlich, die nachfolgende Beschreibung bezieht sich lediglich nur aud das Jetson Nano.
