@@ -3,7 +3,11 @@
 
 In diesem Bereich werden die Kosten für die Umsetzung und Entwicklung des Prototypen aufgelistet. Dabei werden die finanziellen Kosten aber auch der zeitliche Aufwand betrachtet. Zudem wird im Bereich "Lessons learned" aufgezeigt, was in diesem Projekt für Erfahrungen mitgenommen werden können. Ein kurzer Ausblick beendet diesen Teilbereich der Dokumentation.
 
+TODO: Fertig stellen
+
 \subsection{Entwicklungskosten}
+
+Die Kosten eines Projektes sind entscheidend. Deshalb wurde dieses Thema bereits früh an fokussiert. Im Pren1 wurde eine Liste mit den erwarteten Preisen erstellt, aufgrund welcher im Pren2 bereits in den ersten Semesterwochen die Teile eingekauft wurden. Mit dieser Vorgehensweise kann zuverlässig die Kostengrenze eingehalten werden.
 
 Im Pren1 wurden bereits zwei Zahnriemen für die Realisierung des ersten Funktionsmusters angeschafft. Die restlichen Kosten sind im Pren2 entstanden und werden nachfolgend aufgeführt.
 
@@ -15,43 +19,51 @@ Im Pren1 wurden bereits zwei Zahnriemen für die Realisierung des ersten Funktio
 \textbf{Bezeichnung} & \textbf{Anzahl} &
 \textbf{Stückpreis [CHF]} & \textbf{Gesamtkosten [CHF]} \\
 \hline 
-Motor 1 & 1 & 39.00 & 39.00 \\
+Hauptmotor & 1 & 38.95 & 38.95 \\
 \hline
-Motor 2 & 1 & 21.00 & 21.00 \\
+Hilfsmotor & 1 & 20.95 & 20.95 \\
 \hline
-H-Brücke T & 1 & 10.00 & 10.00\\
+H-Brücke T & 2 & 1.20 & 2.40 \\
 \hline
-Zahnriemen für Prototyp & 1 & 5.00 & 5.00 \\
+Zahnriemen für Prototyp (Pren1) & 2 & 4.95 & 9.90 \\
 \hline
-Mikro Switch & 2 & 2.60  & 5.20\\
+Zahnriemen (Pren2)  & 2 & X & X \\
 \hline
-Antriebssystem & 2 & 18.00  & 36.00\\
+Kugellager & 2 & X & X \\
 \hline
-H-Brücke F & 1 & 3.00 & 3.00 \\
+Taster & 3 & 0.05  & 0.15 \\
 \hline
-Raspberry Pi 3 & 1 & 40.00 & 40.00 \\
+Schrauben div. & 0 & 0 & 0.00 \\
 \hline
-Pi-Kamera & 1 & 30.00 & 30.00 \\
+Fortbewegungsmotoren mit Encoder & 2 & 17.37 & 34.75 \\
 \hline
-\acrshort{tof} Sensor 1 & 2 & 12.30 & 24.60 \\
+TOF & 2 & 13.25 & 26.5 \\
 \hline
-Ultraschallsensor & 2 & 2.50 & 5.00 \\
+Ultraschall & 2 & 0.50 & 1 \\
 \hline
-DCDC Converter & 1 & 40.00 & 40.00 \\
+Schalter & 1 & 0.10 & 0.10 \\
 \hline
-\acrshort{tof} Sensor 2 & 1 & 10.00 & 10.00 \\
+LED & 4 & 0.05 & 0.20 \\
 \hline
-Akkupack & 1 & 24.00  & 24.00 \\
+Pi-Kamera V2 & 1 & 29.90 & 29.90 \\
 \hline
-Lautsprecher & 1 & 3.00 & 3.00\\
-\hline 
-Zahnriemen & 2 & 21.00 & 42.00\\
+Kamerakabel & 1 & 5.90 & 5.90 \\
 \hline
-Zahnriemenräder & 4 & 12.00 & 48.00\\
+Nvidia Jetson Nano & 1 & 111.65 & 111.65 \\
 \hline
-div. Zahnräder & 8 & - & 110.00\\
+Akku & 1 & 29.95 & 29.95 \\
+\hline
+Lüfter & 1 & 4.25 & 4.25 \\
+\hline
+Multiplexer & 1 & 6.60 & 6.60 \\
+\hline
+Spannungsregler (DC-DC) & 1 & 4.65 & 4.65 \\
+\hline
+PLA-Filament (3D-Drucker) & 2kg & 24.90 & 24.90 \\
+\hline
+
 \hline \hline 
- \textbf{Subtotal} &&& \textbf{CHF 495.80}\\
+ \textbf{Subtotal} &&& \textbf{CHF XXX.XX}\\
 \hline 
 \end{tabular}
 \caption[Entwicklungskosten]{Entwicklungskosten}
@@ -73,17 +85,17 @@ Nachfolgend ist diese Auflistung dargestellt.
 \textbf {Was} & \textbf{Aufwand [h]} &
 \textbf{Anzahl Personen} & \textbf{Anzahl Wochen} & \textbf{Subtotal [h]}\\
 \hline
-Pren Block Donnerstag & 3 & 6 & 14 & 252 \\
+Pren Block Donnerstag & 3.5 & 6 & 15 & 315 \\
 \hline
-Pren Block Freitag & 3 & 6 & 14 & 252 \\
+Pren Block Freitag & 3.5 & 6 & 15 & 315 \\
 \hline
-Freizeitaufwand (E) & 1 & 3 & 14 & 42 \\
+Freizeitaufwand (E) & 3.5 & 2 & 15 & 105 \\
 \hline
-Freizeitaufwand (I) & 1.5 & 2 & 14 & 42 \\
+Freizeitaufwand (I) & 3.5 & 2 & 15 & 105 \\
 \hline
-Freizeitaufwand (M) & 3 & 1 & 14 & 42 \\
+Freizeitaufwand (M) & 3.5 & 2 & 15 & 105 \\
 \hline
-Total: & & & & 630 \\ \hline
+Total: & & & & 945 \\ \hline
 \end{tabular}
 \caption[Entwicklungsaufwand]{Entwicklungsaufwand}
 \label{tab:entwicklungsaufwand}
@@ -94,12 +106,17 @@ Total: & & & & 630 \\ \hline
 
 Ein Projekt der Grösse von Pren2 ist für das gesamte Team ein Novum. Dabei konnten viele Dinge gelernt werden, welche sich ausschliesslich auf Arbeiten an einem Prototypen beziehen.
 
+So wurde realisiert, dass ein Prototyp bereits früh umgesetzt werden sollte um so schnell wie möglich erste Funktionen zu testen und auf diesem Prototypen aufbauen zu können. Ebenfalls wurde gelernt, das ein solcher erster Prototyp aus 3D-gedrucktem Filament einfach, schnell und flexibel auf Änderungen ist. Dieses Filament hat jedoch auch Nachteile. Spezifisch die Querstabilität einzelner Teile darf nicht vernachlässigt werden und im fertigen Produkt sollten keine gedruckten Teile beinhalten. Trotzdem können auch stark belastete Zahnräder funktionieren, wenn auf das Material und die Voraussetzungen eingegangen wird und die Teile dementsprechen angepasst werden. Ausserdem währe ein selbstgezeichnetes PCB eine Vereinfachung für das Kabelmanagement gewesen. 
+
+Im Bezug zur Gruppenarbeit konnten viele Dinge mitgenommen werden. So ist die Kommunikation zwischen den Teammitgliedern entscheidend. Ausserdem wurde erkannt, dass je weiter der Prototyp fortschreitet die Disziplinen verschwimmen und in gewissen Situationen jeder in allen Disziplinen aushelfen kann. Es war entscheidend, diese Auflösung der Disziplinen aufrecht zu erhalten. So konnte viel Wissen weitergegeben werden.
+
+Das Projektmanagement ist von entscheidender Bedeutung für die realisierung eines solchen Projektes. Auch hier konnten einige Dinge verinerlicht werden. So ist ein gutes Konzept wichtig. Das Konzept aus Pren1 war sehr detailliert, was im Pren2 viele Situationen mit Problemen einfacher gestaltete. Ausserdem sollten keine zu grossen Änderungen inmitten des Projektes durchgeführt werden ohne genügende und saubere Vorbereitung. Der Wechsel des Raspberry Pis auf das Nvidia Jetson hat unnötig viel Zeit gekostet jedoch waren mit diesem Wechsel auch Erfahrungen verknüpft womit ein solche Situation in zukünftigen Projekten nicht mehr eintreten sollte. Die ausergewöhnliche Gegebenheit mit Corona hat den Teammitgliedern viel Flexibilität abverlangt. Das ist ein weiterer Punkt, welcher in einer solchen Arbeit wichtig ist. Es gab insgesamt zwei Ausfälle aufgrund einer Erkrankung oder Quarantäne in welcher die restlichen Teammitglieder flexibel und zuverlässig einspringen konnte.
 
 
 
 \subsection{Kritische Würdigung der Arbeit}
 
-
+Das Projekt ist gut gelaufen. Das Team hat fantastisch Zusammengearbeitet. Die Dokumentation ist detailliert und umfangreich. Der Roboter selbst ist ausgereift und funktioniert. Es gibt jedoch einige Punkte welche besser hätten umgesetzt werden können. So hätte der Antrieb der Fortbewegung übersetzt werden oder mit einem besseren Encoder versehen sollen. Dies auschliesslich um die Genauigkeit der Räder besser bestimmen zu können.
 
 
 \subsection{Offene Punkte, Risiken, Ausblick}
@@ -110,11 +127,13 @@ TODO: Offene Punkte
 
 \subsubsection{Ausblick}
 
-TODO: Ausblick?
+Das Projekt wird mit dem Ende des Moduls Pren2 und dem Wettbewerb beendet. Es ist nicht geplant, an diesem Prototypen weiterzuarbeiten.
+
 
 
 \subsubsection{Risiken}
-Mithilfe eines konsequenten Risikomanagementes können viele Risiken drastisch minimiert werden. Im Pren2 traten viele Risiken auf welche bearbeitet und entschärft werden mussten. In der anschliessenden Tabelle sind die problematischten Risiken zu finden. Die vollständige, iterativ/inkrementell erstellte, Risikoliste mit Korrekturmassnahmen ist im Anhang zu finden.
+
+Viele Risiken können mithilfe eines konsequenten Risikomanagements drastisch reduziert werden. Im Pren1 konnten bereits einige Risiken für das Modul Pren2 identifiziert werden, welche im Prototypenbau systematisch umgangen oder vermindert werden konnten. Die vollständige, iterativ/inkrementell erstellte, Risikoliste mit den entsprechenden Korrekturmassnahmen ist im Anhang zu finden. Die schwerwiegensten Risiken werden nachfolgend kurz erläutert.
 
 \begin{center}
 \begin{table}[H]
@@ -129,10 +148,6 @@ Mithilfe eines konsequenten Risikomanagementes können viele Risiken drastisch m
     \label{tab:risikomanagement-ausblick}
 \end{table}
 \end{center}
-
-Ein weiteres nicht technisches Risiko ist der Wissensverlust, da ein Teammitglied im \acrshort{pren2} nicht mehr dabei sein wird. Um diese Gefahr zu minimieren werden die Erfahrungen und das Wissen stetig ausgetauscht. Mit diesem Risiko geht einher, dass sich, falls eine neue Person dem Projekt beitritt, das neue Teammitglied bestmöglich in das existierende Projekt einarbeiten und somit effizient mitwirken kann.
-
-
 
 
 

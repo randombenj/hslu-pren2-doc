@@ -1,0 +1,141 @@
+\section{Softwarearchitektur}
+\subsection{Komponentenarchitektur}
+Die Software ist objektorientiert und modular aufgebaut. Die verschiedenen Teilfunktionen als auch die Harwaretreiber sind in eigene Komponenten eingebettet. Die Komponenten können über eine schmale vordefinierte Schnittstelle angesprochen werden. Im Bild \ref{fig:komponentenmodell} ist das Komponentenmodell abgebildet. 
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{img/softwarearchitektur/Softwarearchitektur.png}
+  \centering
+  \caption{Komponetenmodell}
+  \label{fig:komponentenmodell}
+\end{figure}
+
+\subsubsection{Main Controller}
+Der Main Controller ist der Kern, welche die restlichen Komponenten zielbringend orchestriert. Innerhlab des Main Controllers befindet sich eine Finite State Machine:\\ \texttt{StairClimbingFrog}. Diese ist im Kapitel \ref{sec:fsm} beschrieben. 
+
+In der Abbildung \ref{fig:uml-main} ist zusehen, dass die verschiedenen Zustände und Unterzustände mithilfe von Enumerationen realisiert werden. Dies bring zum einen den Vorteil mit sich, dass man zur Kompilierzeit einen Compileerror erhält, wenn der Zustand nicht existiert. Wären die Zustände mithilfe von Strings realisiert, würde man erst zur Laufzeit erfahren, ob diese Zustände existieren oder nicht. Weiter ist der Workflow dank dem Intellisense, welches durch Enumerationen ermöglicht wird, beschleunigt.
+
+\begin{figure}[H]
+  \includegraphics[width=0.95\textwidth]{img/softwarearchitektur/UML-MainController.png}
+  \centering
+  \caption{UML: MainController}
+  \label{fig:uml-main}
+\end{figure}
+
+
+\subsubsection{Lifting Controller}
+Der Lifting Controller ist dazu da, den Hauptmotor anzusteuern.
+Das Interface \texttt{LiftingMotor} bestimmt die Methoden welche die Hardwaretreiber-Wrapper: \texttt{MainLiftingMotor} und \texttt{AuxilaryLiftingMotor} implementieren sollen. Der LiftingController implementiert das Interface: \texttt{Lifter}. Über dieses Interface kann der \texttt{LiftingController} von aussen angesprochen werden. Weiter hält er die Instanz des Motors.
+
+\begin{figure}[H]
+  \includegraphics[width=0.95\textwidth]{img/softwarearchitektur/UML-LiftingController.png}
+  \centering
+  \caption{UML: LiftingController}
+  \label{fig:uml-lifting-controller}
+\end{figure}
+
+
+\subsubsection{Cruising Controller}
+Die Komponente Cruising Controller ist grundsätzlich gleich aufgebaut wie derLifting Controller. Über das Interface \texttt{CruiseMotor} werden die spezifischen Motorenimplementationen abstrahiert. Der \texttt{CruiseController} hat je eine Instanz vom \texttt{LeftCruiseMotor} und \texttt{RightCruiseMotor}. Über die verschiedenen Methoden, welcher durch das \texttt{Cruiser} Interface vorgegeben werden, kann die Fortbewegung des Roboters gesteuert werden.
+\begin{figure}[H]
+  \includegraphics[width=0.95\textwidth]{img/softwarearchitektur/UML-CruisingController.png}
+  \centering
+  \caption{UML: CruisingController}
+  \label{fig:uml-cruising-controller}
+\end{figure}
+
+\subsubsection{Tof Alignment Checker}
+Der \texttt{TofAlignmentChecker} hält die Instanzen der beiden Tof-Treiber-Wrapper \texttt{LeftTofSensor} und \texttt{RightTofSensor} und liefert die Differenz zurück. Mithilfe dieser Differenz kann sich der \texttt{StairClimbingFrog} senkrecht zur Treppe ausrichten.
+\begin{figure}[H]
+  \includegraphics[width=0.95\textwidth]{img/softwarearchitektur/UML-TofAlignmentChecker.png}
+  \centering
+  \caption{UML: TofAlignmentChecker}
+  \label{fig:uml-tof-alignment-checker}
+\end{figure}
+
+\subsubsection{Ultrasonic Obstacle Detector}
+Ähnlich aufgebaut ist der Ultrasonic Obstacle Detector. Über das Interface \texttt{ObstacleDetector} kann der \texttt{UltrasonicObstacleDetector} angesprochen werden. Dieser erkennt mithilfe seiner Instanzen \texttt{FrontUltrasonicSensor} Hindernisse vor dem Roboter und liefert die Distanz zu diesem zurück.
+\begin{figure}[H]
+  \includegraphics[width=0.95\textwidth]{img/softwarearchitektur/UML-UltrasonicObstacleDetector.png}
+  \centering
+  \caption{UML: UltrasonicObstacleDetector}
+  \label{fig:uml-ultrasonic-obstacle-detector}
+\end{figure}
+
+\subsubsection{Feature Matching Image Detector}
+\label{sec:architecture-feature-matching}
+Die Feature Matching Image Detector Komponente wird verwendet, um das Piktogramm im Startbereich zu finden und zu erkennen. Weiter ist er zuständig, um das richtige Piktogramm im Zielbereich auszuwählen. 
+Die Klasse \texttt{Piktogramm} repräsentiert die zu detektierende Piktogramme und deren vorbestimmte Keypoints und Deskriptoren (Features). Der \texttt{SiftImageDetector} implementiert über das Interface \texttt{Camera} eine spezifische Kamera Implementation. Für die Bilder, welche die Kamera macht, werden ebenfalls die Features berechnet und mit diesen der Piktogramme abgeglichen. Der Main Controller kann über das \texttt{ImageDetecotr} Interface die entsprechenden Methoden des \texttt{SiftImageDetector} aufrufen.
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{img/softwarearchitektur/UML-FeatureMatchingImageDetector.png}
+  \centering
+  \caption{UML: FeatureMatchingImageDetector}
+  \label{fig:uml-feature-matching-image-detector}
+\end{figure}
+
+Der \texttt{PiCameraStub} dient lediglich dem Testing. Dem \texttt{SiftImageDetector} kann mittels dependency injection die spezifsiche Kameraimplementation übergeben werden. Die Methoden des Testdoubles liefern vordefinierbare Bilder, welche beim Erzeugen des \texttt{PiCameraStubs} oder danach gesetzt werden können. Im nachfolgenden Codesnippet wird anhand eines Test-Cases die Anwendung des \texttt{PiCameraStubs} veranschaulicht.
+
+\begin{minted}{python}
+  class TestSiftImageDetector(unittest.TestCase):
+    def test_detect_bucket(self):
+        print("\n--- Start test detect bucket ---")
+        detectImage = "C:\\git\\hslu-pren\\pren2\\frog\\image_detector\\img\\test\\bucket.jpg"
+        selectImage = ""
+        stub = PiCameraStub(detectImage, selectImage)
+        detector = SiftImageDetector(camera = stub)
+        self.assertEqual(detector.detect().name, Pictograms.BUCKET)
+    
+    ...
+ \end{minted}
+
+\subsection{Finite State Machine}
+\label{sec:fsm}
+Die Main-Komponenten regelt mithilfe einer Finite-State-Machine (FSM) den gessamten Lebenszyklus des Roboters während des Wettbewerbs. In Abbildung \ref{fig:fsm} sind die Hauptzustände modelliert. Innerhalb von jedem Hauptzustand befindet sich eine eigenständige Sub-Statemachine. Die Do-Aktivitäten innerhlab von einem Hauptzusatand werden innerhalb der Unterzustände realisiert. Für jede Do-Aktivitäten existiert ein Behavior. Ein Behavior ist eine Methode welche die benötigten Komponenten wie z.B. \texttt{CruisingController} und \texttt{SiftImageDetector} entgegen nimmt und mithilfe dieser die Do-Aktivität erledigt. Diese Behaviors werden automatisch bei einem Zustandsübergang durchgeführt.
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{img/softwarearchitektur/FSM-FSM.png}
+  \centering
+  \caption{Finite-State-Machine}
+  \label{fig:fsm}
+\end{figure}
+
+\subsubsection{Piktogramm Detektion}
+In der Abbildung \ref{fig:fsm-pictogrammdetection} sind die Unterzustände der Piktogrammdetektion zu sehen. Im Unterzustand DETECTING wird das Behavior \texttt{detect\_pictogram} ausgeführt und im Unterzustand ACKNOWLEDGE das Behavior \texttt{acknowledge}.
+
+Der Roboter wird zu Beginn so ausgerichtet, dass er auf die Treppe zeigt. Im Zustand DETECTING dreht sich der Roboter mit 60° im Kreis und versucht die Piktogramme zu detektieren. Da der Kamerawinkel 62.2° beträgt, kann der Roboter die gesamten 360° mit 6 Rotation absuchen. Dabei merkt er sich die Anzahl 60° Rotationen. Sobald das Piktogramm gefunden wurde, dreht er sich entweder in die gleiche Richtung zurück oder in die entgegengesetzte Richtung. Je nach dem ob mehr oder weniger als 3 Rotationen benötigt wurden um das Piktogramm zu detektieren. Parallel dazu wird das Piktogramm mithilfe von blinkenden LEDs quittiert.
+
+\begin{figure}[H]
+  \includegraphics[width=0.40\textwidth]{img/softwarearchitektur/FSM-PICTOGRAM_DETECTION.png}
+  \centering
+  \caption{FSM: Piktogrammerkennung}
+  \label{fig:fsm-pictogrammdetection}
+\end{figure}
+
+\subsubsection{Pfadfindung}
+In der Abbildung \ref{fig:fsm-pathfinding} sind die Unterzustände der Pfadfindung zu sehen. 
+\begin{figure}[H]
+  \includegraphics[width=0.40\textwidth]{img/softwarearchitektur/FSM-PATH_FINDING.png}
+  \centering
+  \caption{FSM: Pfadfindung}
+  \label{fig:fsm-pathfinding}
+\end{figure}
+
+\subsubsection{Treppensteigen}
+In der Abbildung \ref{fig:fsm-stair-climbing} sind die Unterzustände der Treppenerklimmung zu sehen.
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{img/softwarearchitektur/FSM-STAIR_CLIMBING.png}
+  \centering
+  \caption{FSM: Treppensteigen}
+  \label{fig:fsm-stair-climbing}
+\end{figure}
+
+\subsubsection{Piktogramselektion}
+In der Abbildung \ref{fig:fsm-pictogram-selection} sind die Unterzustände der Piktogramselektion zu sehen. 
+\begin{figure}[H]
+  \includegraphics[width=0.40\textwidth]{img/softwarearchitektur/FSM-PICTOGRAM_SELECTION.png}
+  \centering
+  \caption{FSM: Piktogrammauswahl}
+  \label{fig:fsm-pictogram-selection}
+\end{figure}
+
+\subsection{Übersicht Behaviors}

@@ -1,7 +1,8 @@
 \newpage
+
 \section{Vorgehen}
 
-EVT: Anhang?
+TODO: In Anhang verschieben?
 
 Es wurde beschlossen, nach SODA \cite{HSLU-Education-SODA} vorzugehen.
 SODA ist eine einfache und agile Vorgehensweise zur Entwicklung von (Software-)Projekten. Dieses Vorgehensmodell wurde von der Hochschule Luzern entwickelt, um den Studenten eine iterativ/inkrementelle Vorgehensweise zu bieten, welche trotzdem zeitlich begrenzt ist. Somit ist es eine Mischung aus dem Wasserfallmodell und Scrum. Scrum wird häufig in der Software Entwicklung eingesetzt, wurde aber ursprünglich aus Studien von Manufakturen wie der Autoindustrie entwickelt \cite{Wikipedia-Scrum-History}.
@@ -88,6 +89,7 @@ Diese klärt man mithilfe von Prototypen auf die Machbarkeit.
   
 \subsection{Risikomanagement}
 \label{sec:risikomanagement}
+
 Das Risikomanagement wird iterativ-inkrementell jede Woche in den Stand-Ups durchgeführt. Dazu wurde ein Excel-Template verwendet, welche als Datei dem Anhang beigelegt wird. In diesem Template wurde jedem Risiko einen Risk Score zugeteilt, welcher sich aus Eintrittshäufigkeit multipliziert mit Schadensausmass errechnet. Anhand dieses Risk Scores wurde eine Risikomatrix erstellt, welche in Abbildung \ref{fig:risk-matrix} ersichtlich ist. Dieser Risk Score wurde vor und nach der definierten Prävention berechnet (siehe Abbildung \ref{fig:risk-matrix-after-measures}). Nachfolgend in der Tabelle \ref{tab:risikomanagement} werden lediglich die wichtigsten technischen Risiken und deren präventiven Massnahmen aufgelistet. 
 
 \begin{center}
@@ -106,7 +108,8 @@ Das Risikomanagement wird iterativ-inkrementell jede Woche in den Stand-Ups durc
 \end{table}
 \end{center}
 
-Achtung: Risikomatrizen sind noch nicht aktuell!
+TODO: Risikomatrizen sind noch nicht aktuell!
+
 \begin{figure}[H]
   \centering
   \begin{minipage}[t]{0.45\linewidth}
@@ -146,7 +149,7 @@ Wie in Abbildung \ref{fig:rahmenplan} ersichtlich, hat sich das Team dazu entsch
 \subsection{Productbacklog}
 Als zentrales Projektmanagement Element wird ein Productbacklog aufgesetzt. Dieser dient als Übersicht, was in den nächsten Sprints getan werden muss. Da für das \acrshort{pren2} Projekt jedoch ein klar vorgegebenen Zeitrahmen besteht, das Endresultat klar definiert und auch das Budget fixiert ist, werden bereits zu Beginn alle Sprints aufgelistet und grob geplant. 
 
-TODO Ressourcen Zahl beim Productbacklog prüfen
+Die Epics im Productbacklog und die daraus abgeleiteten User Storys im Sprintbacklog werden anhand von Storypoints eingeschätzt. Der Aufwand wird also nicht in Stunden abgeschätzt. Die Storypoints stehen auch nicht für eine gewisse Anzahl Stunden. Sie deuten lediglich darauf hin, dass der Aufwand für eine User Story mit 5 Story Points in etwa ein viertel so gross ist wie der Aufwand für eine Story mit 21 Story Points. Dies macht die Abschätzung deutlich einfacher, da es dem Menschen viel leichter fällt, den Aufwand relativ zu einem anderen Aufwand zu schätzen, als einen genauen Zeitaufwand anzugeben. Um die Sache noch ein wenig zu erleichtern, richten wir uns bei der Anzahl Story Points nach der Fibonacci-Reihe.
 
 \begin{figure}[H]
   \includegraphics[width=0.95\textwidth]{img/projektmanagement/ProductBacklog PREN2.png}
@@ -233,11 +236,11 @@ In der Abbildung \ref{fig:sprint-backlog-3} wird der Sprintbacklog gezeigt, welc
 \newpage
 
 \textbf{Sprintreview}\\
-Im Sprint 3 konnte der Wechsel von Raspberry Pi auf das Jetson Nano vorgenommen werden. Weiter wurde die sämtliche Verdrahtung aller elektronischen Komponenten vorgenommen. Das Verhalten für die 90° Drehung konnte implementiert werden, als auch eine Funktion welche eine bestimmte Distanz gerade aus fährt. Weiter wurden die Klassen welche die Ultraschallsensoren ansteuern implementiert und getestet. Die User Story 1.3: Seitliche Verscheibung (Verhalten) wurde noch nicht implementiert. Diese User Story wurde in Sprint 4 übernommen. Ebenfalls nicht erfüllt wurde die User Story 3.2: Kombination der Verhalten für automatisiertes Treppensteigen. Diese User Story wird ebenfalls in den Sprint 4 übernommen. Das Verhalten für eine einzelne Hubbewegung konnte jedoch soweit fertig gestellt und zeitlich bereits stark optimiert werden. Der Hauptgrund, weshalb das automatisierte Treppensteigen noch nicht funktioniert ist, dass der Wechsel vom Raspberry Pi auf das Jetson Nano unterschätzt wurde. Beim Wechsel gab es viele kleine Hürden. Eine der Hürden ist z.B, dass das Jetson lediglich zwei PWM Signale generieren kann, obwohl drei benötigt werden.
+Im Sprint 3 konnte der Wechsel von Raspberry Pi auf das Jetson Nano vorgenommen werden. Weiter wurde die sämtliche Verdrahtung aller elektronischen Komponenten vorgenommen. Das Verhalten für die 90° Drehung konnte implementiert werden, als auch eine Funktion welche eine bestimmte Distanz gerade aus fährt. Weiter wurden die Klassen welche die Ultraschallsensoren ansteuern implementiert und getestet. Die User Story 1.3: Seitliche Verscheibung (Verhalten) wurde noch nicht implementiert. Diese User Story wurde in Sprint 4 übernommen. Ebenfalls nicht erfüllt wurde die User Story 3.2: Kombination der Verhalten für automatisiertes Treppensteigen. Diese User Story wird ebenfalls in den Sprint 4 übernommen. Das Verhalten für eine einzelne Hubbewegung konnte jedoch soweit fertig gestellt und zeitlich bereits stark optimiert werden. Der Hauptgrund, weshalb das automatisierte Treppensteigen noch nicht funktioniert ist, dass der Wechsel vom Raspberry Pi auf das Jetson Nano unterschätzt wurde. Beim Wechsel gab es viele kleine Hürden. Eine der Hürden ist beispielsweise, dass das Jetson lediglich zwei PWM Signale generieren kann, obwohl drei benötigt werden.
 
 \subsubsection{Sprint 4}
 \textbf{Sprintziel}\\
-Im vierten Sprint sollen die einzelnen Abläufe eines Laufes kommbiniert werden. Das Gerät soll am Anfang ein Piktogramm erkennen und den optimalen Pfad auf der Treppe anhand der Hindernisserkennung berechnen und anschliessend die Treppe erfolgreich besteigen können. Zudem soll das Gerät fähig sein fünf verschiedene Piktogramme quittieren zu können. Das Gerät kann den ganzen Lauf, bis auf die Zieleinfahrt bewältigen.
+Im vierten Sprint sollen die einzelnen Abläufe eines Laufes kombiniert werden. Das Gerät soll am Anfang ein Piktogramm erkennen und den optimalen Pfad auf der Treppe anhand der Hindernisserkennung berechnen um anschliessend die Treppe erfolgreich besteigen zu können. Zudem soll das Gerät fähig sein fünf verschiedene Piktogramme quittieren zu können. Das Gerät kann den ganzen Lauf, bis auf die Zieleinfahrt bewältigen.
 
 \textbf{Risiko-Update}\\
 Bezüglich dem Treppensteigen ist ein neues Risiko erkannt worden, nämlich dass das Gerät beim Erklimmen einer Stufe einen Schlag abbekommt, wenn das Gerät auf die Kante der nächsthöheren Stufe kippt.
@@ -252,7 +255,8 @@ In der Abbildung \ref{fig:sprint-backlog-4} wird der Sprintbacklog gezeigt, welc
 \end{figure}
 
 \textbf{Sprintreview}\\
-TODO nach Sprint 4
+Der Sprint 4 war mehrheitlich erfolgreich. Die seitliche Verschiebung funktionert einwandfrei. Die zuerst als störend empfundenen Rillen der Treppe helfen dem Roboter beim traversieren sicher in der Spur zu bleiben. Weiter konnten verschiedene Module kombiniert werden. So wird das Piktogramm schnell gefunden und die Treppe direkt angefahren. Mithilfe der Pfadfindung wird der ideale Weg berechnet. Noch nicht getestet werden konnten die Distanzen zu den Hindernissen und die Positionierung vor der Treppe funktioniert noch nicht ideal. Dazu werden weitere Tests benötigt
+Bei der Hardware wurde ein PWM  Board installiert welches über Hardware-PWM Pins verfügt. Dadurch können alle Motoren angesteuert werden und durch die Hardware PWMs laufen die Motoren verglichen zu den Software PWMs deutlich glatter.
 
 \newpage
 
@@ -268,81 +272,3 @@ TODO nach Sprint 4
 
 \textbf{Sprintreview}\\
 
-\subsubsection{Sprint 6}
-\textbf{Sprintziel}\\
--
-
-\textbf{Risiko-Update}\\
--
-
-\textbf{Sprintbacklog}\\
--
-
-\textbf{Sprintreview}\\
-
-
-
-
-\subsection{Kostenübersicht}
-
-Die Kosten eines Projektes sind entscheidend. Deshalb wurde dieses Thema bereits früh an fokussiert. Im Pren1 wurde eine Liste mit den erwarteten Preisen erstellt, aufgrund welcher im Pren2 bereits in den ersten Semesterwochen die Teile eingekauft wurden. Mit dieser Vorgehensweise kann zuverlässig die Kostengrenze eingehalten werden.
-
-\begin{center}
-\centering
-\begin{table}[H]
-\begin{tabular}{|l|r|r|r|}
-\hline 
-\textbf{Bezeichnung} & \textbf{Anzahl} &
-\textbf{Stückpreis [CHF]} & \textbf{Gesamtkosten [CHF]} \\
-\hline 
-Hauptmotor & 1 & 38.95 & 38.95 \\
-\hline
-Hilfsmotor & 1 & 20.95 & 20.95 \\
-\hline
-H-Brücke T & 2 & 1.20 & 2.40 \\
-\hline
-Zahnriemen für Prototyp (Pren1) & 2 & 4.95 & 9.90 \\
-\hline
-Zahnriemen (Pren2)  & 2 & X & X \\
-\hline
-Kugellager & 2 & X & X \\
-\hline
-Taster & 3 & 0.05  & 0.15 \\
-\hline
-Schrauben div. & 0 & 0 & 0.00 \\
-\hline
-Fortbewegungsmotoren mit Encoder & 2 & 17.37 & 34.75 \\
-\hline
-TOF & 2 & 13.25 & 26.5 \\
-\hline
-Ultraschall & 2 & 0.50 & 1 \\
-\hline
-Schalter & 1 & 0.10 & 0.10 \\
-\hline
-LED & 4 & 0.05 & 0.20 \\
-\hline
-Pi-Kamera V2 & 1 & 29.90 & 29.90 \\
-\hline
-Kamerakabel & 1 & 5.90 & 5.90 \\
-\hline
-Nvidia Jetson Nano & 1 & 111.65 & 111.65 \\
-\hline
-Akku & 1 & 29.95 & 29.95 \\
-\hline
-Lüfter & 1 & 4.25 & 4.25 \\
-\hline
-Multiplexer & 1 & 6.60 & 6.60 \\
-\hline
-Spannungsregler (DC-DC) & 1 & 4.65 & 4.65 \\
-\hline
-PLA-Filament (3D-Drucker) & 1kg & 24.90 & 24.90 \\
-\hline
-
-\hline \hline 
- \textbf{Subtotal} &&& \textbf{CHF XXX.XX}\\
-\hline 
-\end{tabular}
-\caption[Entwicklungskosten]{Entwicklungskosten}
-\label{tab:kosten}
-\end{table}
-\end{center}
