@@ -1,0 +1,18 @@
+\newpage
+
+\section{Vergleich Konzeptlösung und Funktionsmuster}
+
+Grösstenteils konnte das Konzept vom \acrshort{pren1} aufgrund der bereits detaillierten Konzeption übernommen werden. Der mechanische Aufbau wurde beim Konzept bereits ausführlich im CAD aufgebaut. Diese Komponenten wurden anschliessend im 3D Druck hergestellt. Einige Teile wurden im Verlauf der Tests optimiert und angepasst, um beispielsweise Gewicht einzusparen oder Montagepunkte für Elektronikkomponenten zu optimieren.
+Für verschiedene Sensoren, Aktoren und Elektronikkomponenten wurden Gehäuse und Halterungen modelliert welche ebenfalls mittels 3D Druck hergestellt werden konnten. Folgende Komponenten wurden aufgrund der Erkenntnisse der Tests abgeändert:
+
+\textbf{Controller}:
+Im Konzept und bei den ersten Tests wurde ein Raspberry Pi 3 verwendet. Bei den Testläufen der Bildverarbeitung hat sich herausgestellt, dass die Leistung des Raspberry Pi zu schwach ist. Während der Bildverarbeitung war die CPU 100\% ausgelastet, und die Verarbeitung eines Bildes dauerte zwischen 10 und 20 Sekunden. Dies würde den Prozess zu lange blockieren, weshalb entschieden wurde eine leistungsstärkere Einheit zu verwenden. Nach kurzer Recherche wurde ein Jetson Nano getestet, das eine eigene GPU zur Verfügung stellt. Mit dem Jetson Nano konnte die Bildverarbeitung auf zwei bis drei Sekunden optimiert werden. Auch die CPU ist während dieser Verarbeitung nicht vollständig ausgelastet, was ermöglicht, gleichzeitig weitere Aktionen durchzuführen. Somit können während der Verarbeitung auch Bewegungen getätigt werden, was deutlich an Zeit spart.
+
+\textbf{Auxiliary-Motor}:
+Der zweite Motor, welcher während der Hubbewegung den Grundkörper ausrichten kann, wurde nach einigen Tests ersatzlos ausgebaut. Es hat sich herausgestellt, dass der ideale Winkel der Grundplatte von Anfang definiert werden kann und sich anschliessend nicht mehr ändern muss. Dieser ideale Winkel konnte mithilfe des Auxiliary-Motor ermittelt werden. Die Achse dieses Antriebes wurde in der Torsionsbewegung blockiert und ist fortan nicht mehr drehbar. Durch dieser Modifikation konnte einiges an Gewicht eingespart werden. 
+
+\textbf{Material der Wellen}:
+Für den ersten Testaufbau wurden alle drei Wellen 3D gedruckt. Bei den ersten Bewegungen wurde festgestellt, dass die Achsen zu wenig steif sind und sich in ihrer Längsachse verdrehen. Somit wurden die drei Antriebswellen in der mechanischen Werkstatt in Auftrage gegeben, um diese aus Aluminium herzustellen. Für diese Arbeit wurden 6.5h aus dem Budget der Mechanikwerkstatt verrechnet. Mit den folgenden Tests konnte eine Verbesserung im Bewegungsablauf und der Steifigkeit beobachtet werden. Mithilfe weiterer Tests wurde erkannt, dass die neuen Aluminium Wellen, welche einiges schwerer sind, den Schwerpunkt des Gerätes negativ beeinflussen. Infolge dessen wurde die vordere Auslegerwelle zurück auf einen leichteren druckbaren Thermoplast (PLA) gewechselt. Diese beeinträchtigt die Steifigkeit nicht drastisch, hat jedoch einen signifikanten Einfluss auf den Schwerpunkt bei der Stufenerklimmung. Somit sind die Wellen 1 und 2 aus Aluminium und die Auslegerwelle aus PLA.
+
+\textbf{TOF Sensoren}:
+Die TOF Sensoren wurden schlussendlich durch Ultraschallsensoren ersetzt. Die TOF Sensoren hatten Probleme mit der Detektion reflektierender Oberflächen, weshalb die Kanten der Aluminiumtreppe nicht präzise erkannt werden konnten. Mit den Ultraschallsensoren konnte dies behoben werden.

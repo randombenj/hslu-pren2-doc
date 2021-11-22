@@ -2,8 +2,6 @@
 
 \section{Vorgehen}
 
-TODO: In Anhang verschieben?
-
 Es wurde beschlossen, nach SODA \cite{HSLU-Education-SODA} vorzugehen.
 SODA ist eine einfache und agile Vorgehensweise zur Entwicklung von (Software-)Projekten. Dieses Vorgehensmodell wurde von der Hochschule Luzern entwickelt, um den Studenten eine iterativ/inkrementelle Vorgehensweise zu bieten, welche trotzdem zeitlich begrenzt ist. Somit ist es eine Mischung aus dem Wasserfallmodell und Scrum. Scrum wird häufig in der Software Entwicklung eingesetzt, wurde aber ursprünglich aus Studien von Manufakturen wie der Autoindustrie entwickelt \cite{Wikipedia-Scrum-History}.
 
@@ -18,7 +16,6 @@ ist es wichtig ein gutes Backlogmanagement zu erstellen. Das heisst alle Aufgabe
 
 Es werden wöchentliche Stand-Ups mit dem Coach und allen Teammitgliedern durchgeführt, hierbei wird besprochen, was in der letzten Woche erreicht wurde, was für Risiken und Hindernisse bestehen (siehe \nameref{sec:risikomanagement}) und was bis zum nächsten Stand-Up erreicht werden soll.
 
-Als Scrum-Board wird Trello\footnote{https://trello.com/} verwendet.
 
 \newpage
 
@@ -30,12 +27,12 @@ SODA gibt die folgenden Rollen vor:
     Repräsentiert die Kunden des Produktes gegenüber dem Team 
     und ist verantwortlich um einen Business-Value zu generieren.
   \item {\bf \acrfull{sm}} \\
-    Entfernt Hindernisse, die das Team an der Producktentwicklung hindern.
+    Entfernt Hindernisse, die das Team an der Producktentwicklung hindern und sorgt für eine zweckmässige Umsetzung von Scrum.
   \item {\bf Entwicklungsteam} \\
     Ist für die Entwicklung des Producktes zuständig.
 \end{items}
 
-Die Rollen wurden gemäss dem Organigramm in Abbildung \ref{fig:organigramm} auf das Team verteilt. Natürlich sind im Rahmen der \acrshort{pren1} Arbeit alle Teammitglieder teil des Entwicklerteams.
+Die Rollen wurden gemäss dem Organigramm in Abbildung \ref{fig:organigramm} auf das Team verteilt. Natürlich sind im Rahmen der \acrshort{pren2} Arbeit alle Teammitglieder teil des Entwicklerteams.
 Je nach Rolle kann aber mehr oder weniger Arbeit beispielsweise für das Backlogmanagement anfallen.
 
 \begin{figure}[H]
@@ -54,7 +51,7 @@ Um Daten im Team auszutauschen und gemeinsam Dokumente zu erarbeiten, werden zwe
 Microsoft OneDrive wird verwendet, um Office 365 Dokumente zu verwalten. Dank OneDrive sind diese Dokumente versionskontrolliert und unter allen Mitgliederen synchronisiert. Dies erlaubt eine simultane Bearbeitung.\\
 
 \textbf{GitHub}\\
-Mit Hilfe von GitHub wird der Quellcode versionskontrolliert verwaltet. Es wurden zwei Repositories angelegt. Die \LaTeX-Dokumentation ist unter dem Repository https://github.com/randombenj/hslu-pren1-doc erreichbar und der Quellcode unter https://github.com/randombenj/hslu-pren1.
+Mit Hilfe von GitHub wird der Quellcode versionskontrolliert verwaltet. Es wurden zwei Repositories angelegt. Die \LaTeX-Dokumentation ist unter dem Repository https://github.com/randombenj/hslu-pren1-doc erreichbar und der Quellcode unter https://github.com/randombenj/hslu-pren.
 
 \newpage
 
@@ -68,19 +65,15 @@ dabei helfen, zu sehen, ob eine Idee umsetzbar ist. Dies wird dadurch erreicht,
 dass sehr einfache (\acrshort{lofi}) Prototypen, beispielsweise aus Karton, 
 gefertigt werden, um zu sehen, ob das gewünschte Konzept überhaupt umsetzbar ist.
 
-Ein Ansatz des Design Thinking ist der Double Diamond Prozess. Auch dabei geht es
-darum, dass man mit einem Problem konfrontiert wird, im hier dargelegten Fall durch die 
-Aufgabenstellung, und versucht dabei die bestmögliche Lösung zu finden.
+Ein Ansatz des Design Thinking ist der Double Diamond Prozess. Dabei geht es darum, bei der Konfrontation mit einem Problem, in diesem Fall die Aufgabenstellung, die bestmögliche Lösung zu finden.
 
-Die Idee dabei ist relativ einfach: Man unterteilt die Problemlösung in vier Teile.
-Als erstes versucht man, möglichst breit gefächert das Problem zu verstehen. Dies geschieht
-beispielsweise indem man sich mit den Kunden zusammensetzt und sich mit ihnen über das Problem unterhält.
-Danach definiert man eine konkrete Problemstellung auf die man sich fokussiert.
-In einer dritten Phase versucht man breit gefächerte Ideen zur Lösung des Problems zu finden.
-Diese Ideen können auch durchaus unkonventionell sein, es sollte noch nichts ausgeschlossen werden.
-Als nächstes definiert man aus den gefundenen Ideen
-die besten, welche sich aufgrund von gewissen Kriterien für die Lösung eignen.
-Diese klärt man mithilfe von Prototypen auf die Machbarkeit.
+Die zugrundeliegende Idee ist einfach: Das Problem wird in vier Teile unterteilt.
+In einem ersten Schritt wird versucht, das Problem zu verstehen. Dies geschieht durch die Kommunikation mit den Verantwortlichen oder dem Studieren der Aufgabenstellung.
+Anschliessend wird eine Problemstellung formuliert.
+In der dritten Phase werden Lösungsansätze gesucht. Dabei ist darauf zu achten, dass das Feld breit abgesucht wird und kein potentieller Lösungsansatz im Vorhinein verworfen wird.
+Im letzten Schritt werden mithilfe der gefundenen Ideen die besten Lösungsansätze definiert, welche am meistversprechendsten sind.
+Abschliessend wird mithilfe von Prototypen und Funktionsmuster die Machbarkeit überprüft.
+
 \begin{figure}[H]
   \includegraphics[width=1.0\textwidth]{img/Aufgabenstellung/double-diamond.png}
   \centering
@@ -102,38 +95,43 @@ Das Risikomanagement wird iterativ-inkrementell jede Woche in den Stand-Ups durc
         R3 & Roboter verschiebt Hindernisse & Bereits frühe Tests mit ausgesuchter Implementation des CNN. \\ \hline 
         R4 & Technische Limitation Neural Network & Ausgiebige Recherche und Tests bezüglich Performance im Sprint 1 und 2.\\ \hline
         R5 & Unbekannte Position der Ausleger & Ausgiebige Tests im Sprint 1 und 2 um die Schwere des Problems genauer einschätzen zu können. \\ \hline
+          R6 & Motorausgangswelle wird zu schnell  & Ein Ersatzmotor wird bestellt und wird ins Ersatzteillager aufgenommen. \\ \hline
+            R7 & Räder haben zu wenig Grip & Das Verhalten der Räder auf Holz und Aluminium wird getestet mit dem realistischen Gewicht. \\ \hline
+              R8 & Akku hat zu geringe Kapazität & Bei der Berechnung der Kapazität wird grosszügig aufgerundet und am Ende noch um ein Faktor 4 erweitert. \\ \hline
+                R9 & Fortbewegungsmotoren haben zu wenig Kraft & Neue Übersetzung oder stärkere Motoren verbauen. \\ \hline
+                  R10 & Verbindungsleisten brechen aufgrund der Spannung des Zahnriemen & Zahnriemenspannelemente auf Reserve halten und gegebenenfalls ersetzten. \\ \hline
+                   R11 & Toffsensoren sind zu ungenau. & TOF-Sensoren mit Ultraschallsensoren austauschen. \\ \hline
     \end{tabularx}
     \caption{Risikomanagement}
     \label{tab:risikomanagement}
 \end{table}
 \end{center}
 
-TODO: Risikomatrizen sind noch nicht aktuell!
+\newpage
 
 \begin{figure}[H]
   \centering
-  \begin{minipage}[t]{0.45\linewidth}
-  \includegraphics[width=1.0\textwidth]{img/risikomanagement/Risks.png}
+  \includegraphics[width=0.6 \textwidth]{img/risikomanagement/Risks.png}
   \caption{Risikomatrix}
   \label{fig:risk-matrix}
-  \end{minipage} 
-  \hfill
-  \begin{minipage}[t]{0.45\linewidth}
-  \includegraphics[width=1.0\textwidth]{img/risikomanagement/RisksAfterMeasures.png}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.60\textwidth]{img/risikomanagement/RisksAfterMeasures.png}
   \caption{Risikomatrix nach den präventiven Massnahmen}
   \label{fig:risk-matrix-after-measures}
-  \end{minipage}
 \end{figure}
 
 \newpage
   
 \subsection{Rahmenplan}
-Wie in Abbildung \ref{fig:rahmenplan} ersichtlich, hat sich das Team dazu entschieden, dass Projekt in Sprints aufzuteilen. Diese dauern jeweils drei Wochen. Die drei Testate bilden die Meilensteine des Projekts im PREN 2.
+Wie in Abbildung \ref{fig:rahmenplan} ersichtlich, hat sich das Team dazu entschieden, dass Projekt in Sprints aufzuteilen. Diese dauern jeweils drei Wochen. Die drei Testate bilden die Meilensteine des Projekts im PREN2. In Abbildung \ref{fig:zeitstrahl} ist noch der Zeitstrahl abgebildet, damit die Dauer der einzelnen Sprints Grafisch direkt ersichtlich ist.
 
 \begin{figure}[H]
   \includegraphics[width=1.0\textwidth]{img/projektmanagement/Rahmenplan PREN2.png}
   \centering
-  \caption{Rahmenplan PREN 2}
+  \caption{Rahmenplan PREN2}
   \label{fig:rahmenplan}
 \end{figure}
 
@@ -141,18 +139,18 @@ Wie in Abbildung \ref{fig:rahmenplan} ersichtlich, hat sich das Team dazu entsch
   \includegraphics[width=1.0\textwidth]{img/projektmanagement/Zeitstrahl.png}
   \centering
   \caption{Zeitstrahl}
-  \label{fig:sprint-backlog-1}
+  \label{fig:zeitstrahl}
 \end{figure}
 
 \newpage
 
 \subsection{Productbacklog}
-Als zentrales Projektmanagement Element wird ein Productbacklog aufgesetzt. Dieser dient als Übersicht, was in den nächsten Sprints getan werden muss. Da für das \acrshort{pren2} Projekt jedoch ein klar vorgegebenen Zeitrahmen besteht, das Endresultat klar definiert und auch das Budget fixiert ist, werden bereits zu Beginn alle Sprints aufgelistet und grob geplant. 
+Als zentrales Projektmanagement Element wird ein Productbacklog (siehe Abbildung \ref{fig:productbacklog}) aufgesetzt. Dieser dient als Übersicht, was in den nächsten Sprints getan werden muss. Da für das \acrshort{pren2} Projekt jedoch ein klar vorgegebenen Zeitrahmen besteht, das Endresultat klar definiert und auch das Budget fixiert ist, werden bereits zu Beginn alle Sprints aufgelistet und grob geplant. 
 
-Die Epics im Productbacklog und die daraus abgeleiteten User Storys im Sprintbacklog werden anhand von Storypoints eingeschätzt. Der Aufwand wird also nicht in Stunden abgeschätzt. Die Storypoints stehen auch nicht für eine gewisse Anzahl Stunden. Sie deuten lediglich darauf hin, dass der Aufwand für eine User Story mit 5 Story Points in etwa ein viertel so gross ist wie der Aufwand für eine Story mit 21 Story Points. Dies macht die Abschätzung deutlich einfacher, da es dem Menschen viel leichter fällt, den Aufwand relativ zu einem anderen Aufwand zu schätzen, als einen genauen Zeitaufwand anzugeben. Um die Sache noch ein wenig zu erleichtern, richten wir uns bei der Anzahl Story Points nach der Fibonacci-Reihe.
+Die Epics im Productbacklog und die daraus abgeleiteten User Storys im Sprintbacklog werden anhand von Storypoints eingeschätzt. Der Aufwand wird also nicht in Stunden abgeschätzt. Die Storypoints stehen auch nicht für eine gewisse Anzahl Stunden. Sie deuten lediglich darauf hin, dass der Aufwand für eine User Story mit 5 Story Points in etwa ein Viertel so gross ist wie der Aufwand für eine Story mit 21 Story Points. Dies macht die Abschätzung deutlich einfacher, da es dem Menschen viel leichter fällt, den Aufwand relativ zu einem anderen Aufwand zu schätzen, als einen genauen Zeitaufwand anzugeben. Um die Sache noch ein wenig zu erleichtern, richtet sich die Anzahl Story Points nach der Fibonacci-Reihe\footnote{https://de.wikipedia.org/wiki/Fibonacci-Folge}.
 
 \begin{figure}[H]
-  \includegraphics[width=0.95\textwidth]{img/projektmanagement/ProductBacklog PREN2.png}
+  \includegraphics[width=1\textwidth]{img/projektmanagement/ProductBacklog PREN2.png}
   \centering
   \caption{Productbacklog}
   \label{fig:productbacklog}
@@ -162,14 +160,15 @@ Die Epics im Productbacklog und die daraus abgeleiteten User Storys im Sprintbac
 \subsection{Sprints}
 Zu Beginn jedes Sprints wird eine Sprintplanung gemacht. Dazu werden die Backlog-Items (Epics) mit der höchsten Priorisierung in User-Storys aufgesplittet und in den Sprintbacklog übernommen. 
 
-TODO: Boas Fibonacci Zahlen des Aufwands erklären
-
 \subsubsection{Sprint 0}
 \textbf{Sprintziel}\\
-Das Ziel des nullten Sprints ist es, dass eine Detailplanung für die Entwurfs- und Realisierungsphase vorliegt. Zudem sollen die neuen Teammitglieder eingearbeitet sein und das Konzept aus Pren 1 verstehen. 
+Das Ziel des nullten Sprints ist es, dass eine Detailplanung für die Entwurfs- und Realisierungsphase vorliegt. Zudem sollen die neuen Teammitglieder eingearbeitet sein und das Konzept aus PREN1 verstehen. 
 
 \textbf{Risiko-Update}\\
-Es wurden die Top 3 Risiken welche am Ende von Pren 1 vorlagen übernommen: R1 (Drehung in der Nähe der Treppenwand), R2 (Gleichgewicht bei Erklimmung) und R3 (Roboter verschiebt Hindernisse).
+Es wurden die Top 3 Risiken, welche am Ende von PREN1 vorlagen, übernommen: R1 (Drehung in der Nähe der Treppenwand), R2 (Gleichgewicht bei Erklimmung) und R3 (Roboter verschiebt Hindernisse).
+
+\textbf{Sprintreview}\\
+Die Planung des Projektes konnte bereits früh erstellt werden. Das neue Teammitglied wurde schnell eingeführt und konnte somit früh mitarbeiten. Der erste Sprint ist somit erfolgreich verlaufen.
 
 \subsubsection{Sprint 1}
 \textbf{Sprintziel}\\
@@ -190,16 +189,19 @@ In der Abbildung \ref{fig:sprint-backlog-1} wird der Sprintbacklog gezeigt, welc
 \newpage
 
 \textbf{Sprintreview}\\
-Der erste Sprint konnte erfolgreich abgeschlossen werden. Im CAD wurde die Detailierung des Geräts fertig gestellt und von den Teilen, die extern gefertigt werden, wurden Einzelteilzeichnungen gemacht. Die Teile wurden in Auftrag gegeben. Weiter wurden diverse Teile selber 3D-gedruckt. Da im Team drei 3D-Drucker vorhanden sind, war es möglich vor Ende des ersten Sprints alle Teile anzufertigen. Die Teile, die in Auftrag gegeben wurden, wurden für den ersten Test der Hubbewegung auch mit dem 3D-Drucker hergestellt.
+Der erste Sprint konnte erfolgreich abgeschlossen werden. Im CAD wurde die Detailierung des Geräts fertig gestellt und von den Teilen, die extern gefertigt werden, wurden Einzelteilzeichnungen gemacht. Die Teile wurden in Auftrag gegeben. Weiter wurden diverse Teile selber 3D-gedruckt. Da im Team drei 3D-Drucker vorhanden sind, war es möglich, vor Ende des ersten Sprints alle Teile anzufertigen. Die Teile, die in Auftrag gegeben wurden, wurden für den ersten Test der Hubbewegung auch mit dem 3D-Drucker hergestellt.
 Die Elektrokomponenten wurden eingekauft und verdrahtet.
-Der erste Test der Hubbewegungen war erfolgreich und hat die technische Machbarkeit des Konzepts bewiesen.
+Der erste Test der Hubbewegungen war erfolgreich und hat die technische Machbarkeit des Konzepts nachgewiesen.
 
 Das Teilziel Softwarearchitektur wurde ebenfalls erfolgreich abgeschlossen. Die Architektur wurde anhand einer FSM, einem Komponentendiagramm und UMLs dokumentiert. Der Grundriss der modellierte Architektur wurde in Python implementiert. Für jede Komponente wurde ein Feature-Branch vorbereitet. 
-Weiter wurde aufgrund von Unterauslastung das Bilderkennungsepic von Sprint 4 in den Sprint 1 vorgeschoben. Die benötigten Module wurden implementiert, getestet und dokumentiert. 
+Weiter wurde aufgrund von Unterauslastung das Bilderkennungsepic von Sprint 4 in den Sprint 1 vorgeschoben. Die benötigten Module wurden implementiert, getestet und dokumentiert.
+
+\textbf{Controlling Sprint 1}\\
+Der Aufwand des ersten Sprintes hat sich in den erwarteten Zeiten bewegt. Die Issues konnten alle behoben werden. Die Sprintziele wurden einen Tag früher als geplant erreicht.
 
 \subsubsection{Sprint 2}
 \textbf{Sprintziel}\\
-Das Ziel von Sprint 2 ist es, die Treppe ohne Hindernisse geradeaus autonom erklimmen zu können. Dazu muss die Fartbewegung realisiert werden und das Gerätmuss sich vor einer Treppenstufe ausrichten können. Zudem soll das Pathfinding trainiert werden.
+Das Ziel von Sprint 2 ist es, die Treppe ohne Hindernisse geradeaus autonom erklimmen zu können. Dazu muss die Fartbewegung realisiert werden und das Gerät muss sich vor einer Treppenstufe ausrichten können. Zudem soll das Pathfinding trainiert werden.
 
 \textbf{Risiko-Update}\\
 Das Risiko, dass die erste Hubbewegung technisch nicht umsetzbar ist, ist weggefallen, da der erste Test am Ende des ersten Sprints erfolgreich war.
@@ -216,10 +218,13 @@ In der Abbildung \ref{fig:sprint-backlog-2} wird der Sprintbacklog gezeigt, welc
 \textbf{Sprintreview}\\
 Die Fortbewegungskomponenten konnten im Gerät integriert werden und die Fortbewegung wurde erfolgreich manuell getestet. Auch die Ausrichtung vor einer Treppenstufe konnte umgesetzt werden. Das automatische Treppensteigen konnte noch nicht realisiert werden. Dieser Task wird im Sprint 3 weiter bearbeitet.
 
+\textbf{Controlling Sprint 2}\\
+Der Sprint 2 war zu gross geplant. Das Team konnte einen Tag weniger am Projekt arbeiten als geplant, weshalb die zu gross geplanten Sprintziele im Sprint 2 nicht erreicht werden konnten obschon im Vergleich zu Sprint 1 mehr Aufwand betrieben wurde.
+
 
 \subsubsection{Sprint 3}
 \textbf{Sprintziel}\\
-Im dritten Sprint soll die seitliche Verschiebung des Geräts auf einer Treppenstufe realisiert werden. Bei dieser Verschiebung sollen die Hindernisse mit mithilfe der Ultraschallsensoren erkannt werden. Weiter soll das automatisierte Treppensteigen realisiert werden, was bereits Ziel des zweiten Sprints war. Das Pathfinding soll so weit sein, dass der optimale Pfad für die Treppenbesteigung bestimmt werden kann.
+Im dritten Sprint soll die seitliche Verschiebung des Geräts auf einer Treppenstufe realisiert werden. Bei dieser Verschiebung sollen die Hindernisse mithilfe der Ultraschallsensoren erkannt werden. Weiter soll das automatisierte Treppensteigen realisiert werden, was bereits Ziel des zweiten Sprints war. Das Pathfinding soll so weit sein, dass der optimale Pfad für die Treppenbesteigung bestimmt werden kann.
 
 \textbf{Risiko-Update}\\
 Bezüglich der Fortbewegung wurden zwei neue Risiken erfasst, nämlich dass die Räder zu wenig Gripp haben und dass die Fortbewegungsmotoren zu wenig Drehmoment erzeugen.
@@ -236,14 +241,17 @@ In der Abbildung \ref{fig:sprint-backlog-3} wird der Sprintbacklog gezeigt, welc
 \newpage
 
 \textbf{Sprintreview}\\
-Im Sprint 3 konnte der Wechsel von Raspberry Pi auf das Jetson Nano vorgenommen werden. Weiter wurde die sämtliche Verdrahtung aller elektronischen Komponenten vorgenommen. Das Verhalten für die 90° Drehung konnte implementiert werden, als auch eine Funktion welche eine bestimmte Distanz gerade aus fährt. Weiter wurden die Klassen welche die Ultraschallsensoren ansteuern implementiert und getestet. Die User Story 1.3: Seitliche Verscheibung (Verhalten) wurde noch nicht implementiert. Diese User Story wurde in Sprint 4 übernommen. Ebenfalls nicht erfüllt wurde die User Story 3.2: Kombination der Verhalten für automatisiertes Treppensteigen. Diese User Story wird ebenfalls in den Sprint 4 übernommen. Das Verhalten für eine einzelne Hubbewegung konnte jedoch soweit fertig gestellt und zeitlich bereits stark optimiert werden. Der Hauptgrund, weshalb das automatisierte Treppensteigen noch nicht funktioniert ist, dass der Wechsel vom Raspberry Pi auf das Jetson Nano unterschätzt wurde. Beim Wechsel gab es viele kleine Hürden. Eine der Hürden ist beispielsweise, dass das Jetson lediglich zwei PWM Signale generieren kann, obwohl drei benötigt werden.
+Im Sprint 3 konnte der Wechsel von Raspberry Pi auf das Jetson Nano vorgenommen werden. Weiter wurde die  Verdrahtung sämtlicher elektronischer Komponente vorgenommen. Das Verhalten für die 90° Drehung konnte implementiert werden, als auch eine Funktion welche eine bestimmte Distanz geradeaus fährt. Weiter wurden die Klassen welche die Ultraschallsensoren ansteuern implementiert und getestet. Die User Story 1.3: Seitliche Verscheibung (Verhalten) wurde noch nicht implementiert. Diese User Story wurde in Sprint 4 übernommen. Ebenfalls nicht erfüllt wurde die User Story 3.2: Kombination der Verhalten für automatisiertes Treppensteigen. Diese User Story wird ebenfalls in den Sprint 4 übernommen. Das Verhalten für eine einzelne Hubbewegung konnte jedoch soweit fertig gestellt und zeitlich bereits stark optimiert werden. Der Hauptgrund, weshalb das automatisierte Treppensteigen noch nicht funktioniert ist, dass der Wechsel vom Raspberry Pi auf das Jetson Nano unterschätzt wurde. Beim Wechsel gab es viele kleine Hürden. Eine der Hürden ist beispielsweise, dass das Jetson lediglich zwei PWM Signale generieren kann, obwohl drei benötigt werden.
+
+\textbf{Controlling Sprint 3}\\
+Der Aufwand bezüglich des Sprint 3 wurde zu niedrig eingeschätzt. Der reale Aufwand bewegte sich ungefähr im doppelten von dem was geplant wurde. Dies aufgrund der Probleme mit dem Auswechseln des Controllers. Deshalb wurde bereits früh mehr Arbeitszeit eingeplant.
 
 \subsubsection{Sprint 4}
 \textbf{Sprintziel}\\
-Im vierten Sprint sollen die einzelnen Abläufe eines Laufes kombiniert werden. Das Gerät soll am Anfang ein Piktogramm erkennen und den optimalen Pfad auf der Treppe anhand der Hindernisserkennung berechnen um anschliessend die Treppe erfolgreich besteigen zu können. Zudem soll das Gerät fähig sein fünf verschiedene Piktogramme quittieren zu können. Das Gerät kann den ganzen Lauf, bis auf die Zieleinfahrt bewältigen.
+Im vierten Sprint sollen die einzelnen Abläufe eines Laufes kombiniert werden. Das Gerät soll am Anfang ein Piktogramm erkennen und den optimalen Pfad auf der Treppe anhand der Hindernisserkennung berechnen um anschliessend die Treppe erfolgreich besteigen zu können. Zudem soll das Gerät fähig sein, fünf verschiedene Piktogramme quittieren zu können. Das Gerät kann den ganzen Lauf, bis auf die Zieleinfahrt bewältigen.
 
 \textbf{Risiko-Update}\\
-Bezüglich dem Treppensteigen ist ein neues Risiko erkannt worden, nämlich dass das Gerät beim Erklimmen einer Stufe einen Schlag abbekommt, wenn das Gerät auf die Kante der nächsthöheren Stufe kippt.
+Bezüglich dem Treppensteigen ist ein neues Risiko erkannt worden:  Das Gerät erhält beim Erklimmen einer Stufe einen Schlag, wenn das Gerät auf die Kante der nächsthöheren Stufe kippt.
 
 \textbf{Sprintbacklog}\\
 In der Abbildung \ref{fig:sprint-backlog-4} wird der Sprintbacklog gezeigt, welcher in der Sprintplanung erstellt wurde.
@@ -254,21 +262,77 @@ In der Abbildung \ref{fig:sprint-backlog-4} wird der Sprintbacklog gezeigt, welc
   \label{fig:sprint-backlog-4}
 \end{figure}
 
+\newpage
+
 \textbf{Sprintreview}\\
-Der Sprint 4 war mehrheitlich erfolgreich. Die seitliche Verschiebung funktionert einwandfrei. Die zuerst als störend empfundenen Rillen der Treppe helfen dem Roboter beim traversieren sicher in der Spur zu bleiben. Weiter konnten verschiedene Module kombiniert werden. So wird das Piktogramm schnell gefunden und die Treppe direkt angefahren. Mithilfe der Pfadfindung wird der ideale Weg berechnet. Noch nicht getestet werden konnten die Distanzen zu den Hindernissen und die Positionierung vor der Treppe funktioniert noch nicht ideal. Dazu werden weitere Tests benötigt
+Der Sprint 4 war mehrheitlich erfolgreich. Die seitliche Verschiebung funktionert einwandfrei. Die zuerst als störend empfundenen Rillen der Treppe helfen dem Roboter beim Traversieren sicher in der Spur zu bleiben. Weiter konnten verschiedene Module kombiniert werden. So wird das Piktogramm schnell gefunden und die Treppe direkt angefahren. Mithilfe der Pfadfindung wird der ideale Weg berechnet. Noch nicht getestet werden konnten die Distanzen zu den Hindernissen und die Positionierung vor der Treppe funktioniert noch nicht ideal. Dazu werden weitere Tests benötigt
 Bei der Hardware wurde ein PWM  Board installiert welches über Hardware-PWM Pins verfügt. Dadurch können alle Motoren angesteuert werden und durch die Hardware PWMs laufen die Motoren verglichen zu den Software PWMs deutlich glatter.
 
-\newpage
+\textbf{Controlling Sprint 4}\\
+Auch im Sprint 4 wurde der zu erwartende Aufwand als zu gering eingestuft. Der effektive Aufwand war ungefähr 30\% grösser als geplant. Trotzdem erhöhten Arbeitspensum konnten nicht alle Sprintziele erreicht werden.
 
 \subsubsection{Sprint 5}
 \textbf{Sprintziel}\\
--
+Im fünften und letzten Sprint soll die Zieleinfahrt realisiert werden. Das Gerät soll auf der Zielplattform das richtige Piktogramm anfahren und die Fahne auslenken. Dazu soll die Laufzeit optimiert werden.
 
 \textbf{Risiko-Update}\\
--
+Es sind keine neuen Risiken hinzugekommen.
 
 \textbf{Sprintbacklog}\\
--
+In der Abbildung \ref{fig:sprint-backlog-5} wird der Sprintbacklog gezeigt, welcher in der Sprintplanung erstellt wurde.
+\begin{figure}[H]
+  \includegraphics[width=1.0\textwidth]{img/projektmanagement/Sprint 5.png}
+  \centering
+  \caption{Sprint 5 - Backlog}
+  \label{fig:sprint-backlog-5}
+\end{figure}
 
 \textbf{Sprintreview}\\
+Der fünfte Sprint war erfolgreich. Es konnte in verschiedenen Tests jedes der fünf Piktogramme korrekt ausgelenkt und signalisiert werden.
+Das Anfahren dieser Piktogramme funktioniert ebenfalls ausgezeichnet. Die Methode, welche zur Erkennung und zum Anfahren der Piktogramme verwendet wird funktionierte in den Tests zu 80\% perfekt. Die Signalisation im Anschluss bereitet ebenfalls keine Probleme. Sowohl die LED-Bestätigung wie auch die Audioausgabe erledigen ihre Aufgabe.
+
+\textbf{Controlling Sprint 5}\\
+Der geplante Aufwand für den Sprint 5 war wieder als zu gering eingeschätzt worden. Die Sprintziele vom Sprint 5 waren ungefähr doppelt so aufwändig wie geplant. Dazu kamen die nicht erledigten Sprintziele aus dem Sprint 4.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

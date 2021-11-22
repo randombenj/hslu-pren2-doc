@@ -1,4 +1,18 @@
 \documentclass[oneside]{modern}
+
+
+%Deckblatt, falls nicht geht löschen :)
+
+%  \includepdf[
+ % pages={1-},
+ % scale=0.9,
+ % pagecommand={\pagestyle{fancy}}
+%]{assets/Deckblatt.pdf}
+
+
+\newpage
+
+
 \title{Produktentwicklung 2}
 \author{
 \begin{tabular}{ l l l}
@@ -15,7 +29,7 @@
   \\
   \\
   \\
-  TA.BA\_PREN2.HS2001 &&\\
+  TA.BA\_PREN2.F2101 &&\\
 \end{tabular}
 }
 
@@ -71,11 +85,6 @@
   \etocsettagdepth{mtappendix}{none}
   \addtableofcontents
   
-  \newpage
-  \listoffigures
-  
-  \newpage
-  \listoftables
 
   \newpage
   
@@ -88,15 +97,20 @@
   \subfile{parts/1-Einleitung}
   \subfile{parts/2-Aufgabenstellung}
   \subfile{parts/3-Hauptteil}
+  \subfile{parts/3.0-VergleichFunktionsmuster}
   \subfile{parts/3.1-softwarearchitektur}
   \subfile{parts/3.2-piktogrammerkennung}
   \subfile{parts/3.3-hinderniserkennung.tex}
   \subfile{parts/3.4-embedded-linux-workflow.tex}
-  \subfile{parts/4-VergleichFunktionsmuster}
   \subfile{parts/4.1-Bedienungsanleitung}
   \subfile{parts/5-Vorgehen}
   \subfile{parts/6-schlussdiskussion}
   
+    \newpage
+  \listoffigures
+  
+  \newpage
+  \listoftables
 
 
   \newpage
@@ -106,14 +120,15 @@
   \newpage
   \addcontentsline{toc}
     {section}
-    {Literatur}
+    {Literaturverzeichnis}
 
   \printbibliography[
     heading=subbibliography
   ]
 
   % Anhang
-  %\addcontentsline{toc}
+  \newpage
+  \addcontentsline{toc}
     {section}
     {Anhang}
     

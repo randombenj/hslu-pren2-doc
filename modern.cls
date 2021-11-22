@@ -22,7 +22,7 @@
 % PACKAGE DEFINITION
 
 \RequirePackage[newparttoc]{titlesec} % Package to redefine the title
-\RequirePackage{titletoc} % Package to style the table of contents$
+\RequirePackage{titletoc} % Package to style the table of contents
 \RequirePackage{afterpage}
 \RequirePackage{longtable}
 \RequirePackage[

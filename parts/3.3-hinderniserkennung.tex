@@ -2,10 +2,10 @@
 
 \section{Hinderniserkennung}
 
-Wie bereits im \acrshort{pren1} klar wurde, ist das Problem der Hinderniserkennung zu komplex, um mit simpler Bildverarbeitung gelöst werden zu können. 
+Wie bereits im \acrshort{pren1} klar wurde, ist das Problem der Hinderniserkennung zu komplex, um dies mit simpler Bildverarbeitung lösen zu können. 
 Das Erkennen von Objekten auf einem Bild, wurde bereits durch \acrfull{cnn} gelöst.
 
-\subsection{Objektdetektierung mit \acrshort{cnn}}
+\subsection{Objektdetektierung mit CNN}
 
 Die Objektdetektierung ist eines von vier Grundproblemen des {\it Computer Vision} Forschungsbereiches.
 Dazu zählen die Bildklassifizierung, Objektdetektierung, Semantische Segmentation und Instance Segmentation.
@@ -22,20 +22,22 @@ Bei der Objektdetektierung werden einzelne Objekte einer bestimmten Klasse mit {
 eingezeichnet. Die Genauigkeit solcher \acrshort{cnn} kann für ein spezialisiertes Gebiet die
 eines Menschen übertreffen \cite{BUETTIDINH2019e00321}.
 
-\subsection{Algorythmen zur Objektdetektierung}
+\subsection{Algorithmen zur Objektdetektierung}
 
 Es gibt verschiedene Algorithmen zur Detektierung von Objekten in einem Bild. 
 Dabei ist vor allem die Abwägung zwischen Genauigkeit und Geschwindigkeit entscheidend.
 Aus diesem Grund wird die Objektdetektierung auch in zwei Gruppen unterteilt, nämlich 
 (i) single-stage detection wie \acrshort{yolo} \cite{redmon2016look} oder \acrshort{ssd} \cite{Liu_2016} und (ii) two-stage detection wie \acrfull{r-cnn} \cite{girshick2015fast}.
 
-Ein two-stage detector besteht aus einem ersten Feature Proposal Schritt, gefolgt von einer Klassifizierung der vorgeschlagenen Features des ersten Schrittes. Ein sigle-stage Detector klassifiziert die Regionen eines Bildes direkt in einem Durchlauf. 
+Ein two-stage Detector besteht aus einem ersten Feature Proposal Schritt, gefolgt von einer Klassifizierung der vorgeschlagenen Features des ersten Schrittes. Ein single-stage Detector klassifiziert die Regionen eines Bildes direkt in einem Durchlauf. 
 
 Während single-stage Detektoren generell eine schnelleres Inference bieten, sind two-stage Detektoren genauer \cite{soviany2018optimizing}.
 Aus diesem Grund werden häufig für Echtzeitanwendungen Objektdetektierung, wie das Erkennen von Objekten in einem Videostream, single-stage
 Detektoren verwendet.
 
-\subsection{\acrfull{r-cnn}}
+\newpage
+
+\subsection{Region Based CNN (R-CNN)}
 
 Aufgrund der erhöhten Genauigkeit von two-stage Detektoren, wird in dieser Arbeit vor allem \acrshort{r-cnn} behandelt.
 
@@ -48,10 +50,12 @@ Bei einem \acrshort{r-cnn}
 
 \image{img/CNN/r-cnn}
 {
-  Der \acrfull{r-cnn} \cite{girshick2014rich} Objektdetektierungs Algorythmus bei welchem zuerst Regionen 
+  Der \acrfull{r-cnn} \cite{girshick2014rich} Objektdetektierungs Algorithmus bei welchem zuerst Regionen 
   vorgeschlagen werden, auf denen danach mit einem Backbone Segmantische Kategorisierung durchgeführt wird und
   das Objekt einer Klasse zugeteilt wird.
 }
+
+\newpage
 
 \subsection{Erkennung von Ziegelsteinen und Treppenstufen}
 
@@ -68,27 +72,28 @@ realisiert.
 Ansatz eines vereinfachten \acrshort{r-cnn} mit Stufenerkennungs Feature engineering.
 }
 
-Die Resultate konnten weder die erwartete Performanz noch Genauigkeit zufriedenstellen.
+Die Resultate konnten weder die erwartete Performance noch Genauigkeit zufriedenstellen.
 Das Paper dazu kann auf GitHub \footnote{
 https://github.com/randombenj/hslu-pren/blob/a987e1c53f3b44a86b42ca3030afb1f12880d94c/pren1/research/yes-no-classification-sliding-window.ipynb} gefunden werden.
 
+\newpage
 
 \subsubsection{Detectron2}
 
 Detectron2 \cite{wu2019detectron2} ist ein State of the Art Framework für Objektdetektierung, Semantische- und Instance Segmentierung.
 Es werden verschiedene \acrshort{r-cnn} Models zur verfügung gestellt. \footnote{
-\url{https://github.com/facebookresearch/detectron2/blob/master/MODEL_ZOO.md#coco-object-detection-baselines}
+\url{https://github.com/facebookresearch/detectron2/blob/master/MODEL\_ZOO.md\#coco-object-detection-baselines}
 }
 Zudem bietet Detectron2 eine sehr einfache Möglichkeit mittels Transfer Learning \footnote{
-\url{https://colab.research.google.com/drive/16jcaJoc6bCFAQ96jDe2HwtXj7BMD_-m5#scrollTo=b2bjrfb2LDeo}
+\url{https://colab.research.google.com/drive/16jcaJoc6bCFAQ96jDe2HwtXj7BMD\_-m5}
 }
 einen eigenen Datensatz, bestehend auf dem vortrainierten Gewichten der Features zu trainieren.
 Somit ist es möglich, mit wenigen hundert Bildern neue Objekte zu erkennen.
 
 \subsubsection{Performance Testing}
 
-Um zu sehen ob ein Raspberry Pi solch komplexes \acrshort{cnn} überhaupt berechnen kann, oder ob ein
-Leistungsfähigeres Compute Board gekauft werden muss, werden Performance Tests durchgeführt.
+Um zu sehen, ob ein Raspberry Pi solch komplexes \acrshort{cnn} überhaupt berechnen kann, oder ob ein
+Leistungsfähigeres Computer Board gekauft werden muss, werden Performance Tests durchgeführt.
 Das Setup für die Performancetests kann auf GitHub \footnote{\url{https://github.com/randombenj/detectron2onnx-inference/blob/master/detectron2-onnx.ipynb}} gefunden werden.
 
 Für die Performancetests werden drei Controller angeschaut, die Controller konnten ausgeliehen werden.
@@ -118,16 +123,13 @@ dann sind aber alle vier CPU Kerne zu 100\% für die gesamte Zeit ausgelastet.
 Da die Nvidia Boards jeweils über eine Maxwell GPU verfügen und diese auch mit CUDA \footnote{https://developer.nvidia.com/cuda-zone}
 für Machine Learning verwendet werden kann, wurde entschieden, das Jetson Nano anstatt das ursprünglich geplante
 Raspberry Pi zu besorgen. Das Jetson Nano verfügt über die gleichen Kamera und GPIO Anschlüsse, und 
-ist somit Kompatibel mit der geplanten Elektronik.
+ist somit kompatibel mit der geplanten Elektronik.
 
-\subsection{Trainieren des \acrshort{cnn}}
+\subsection{Trainieren des CNN}
 
 Bei den detectron2 \acrshort{cnn} Modellen kann ein bereits vortrainiertes Neuronales Netz
 verwendet werden. Dieses kann anschliessend mit wenigen hundert Bildern via Transfer Learning \footnote{https://en.wikipedia.org/wiki/Transfer\_learning}
 auf ein eigenes Datenset angepasst werden.
-
-Den Vorgang kann man sich so vorstellen, dass das Modell verschiedene, häufig vorkommende Formen wie Kreise, Vierecke, ...
-bereits kennt und man durch das Datenset dem Modell beibringt was eine Treppenstufe oder ein Ziegelstein ist.
 
 \subsubsection{Sammeln von Trainingsdaten}
 
@@ -142,18 +144,73 @@ Die Bilder wurden in einer Auflösung von 720x960 Pixel aufgenommen. Ziel war es
 Aufnahme der Trainingsdaten für die Hinderniserkennung
 }
 
+Um die Trainingsdaten schnell und effizient aufnehmen zu können, wurde mithilfe von Python Flask 
+\footnote{https://flask.palletsprojects.com/en/2.0.x/} eine kleine Webapp erstellt.
+
+Die Kamera wurde mithilfe von opencv angesteuert:
+
+\begin{minted}{python}
+def gstreamer_pipeline(
+    capture_width=3280,
+    capture_height=2464,
+    display_width=960,
+    display_height=720,
+    framerate=1,
+    flip_method=0,
+):
+    return (
+        "nvarguscamerasrc ! "
+        "video/x-raw(memory:NVMM), "
+        "width=(int)%d, height=(int)%d, "
+        "format=(string)NV12, framerate=(fraction)%d/1 ! "
+        "nvvidconv flip-method=%d ! "
+        "video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! "
+        "videoconvert ! "
+        "video/x-raw, format=(string)BGR ! appsink"
+        % (
+            capture_width,
+            capture_height,
+            framerate,
+            flip_method,
+            display_width,
+            display_height,
+        )
+    )
+
+
+
+video = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
+err, frame = video.read()
+\end{minted}
+
+Die Webapp wurde auf dem Prototypen (Jetson Nano) gehostet.
+Der Netzwerkaufbau ist in der Abbildung \ref{fig:capturing-tool} aufgezeigt.
+Dabei ist der Entwicklerlaptop mit dem Jetson über Ethernet verbunden und über einen
+Hotspot mit dem Smartphone.
+
+\begin{figure}[H]
+  \includegraphics[width=0.95\textwidth]{img/CNN/net-diagram.png}
+  \caption{Aufbau des Image Capturing Tools}
+  \label{fig:capturing-tool}
+\end{figure}
+
+Die Webapp wird per SSH Tunnel \footnote{\url{https://www.ssh.com/academy/ssh/tunneling/example}}
+vom Jetson zum Smartphone exposed.
+
 \subsubsection{Annotieren der Trainingsdaten}
 
-Die Trainingsdaten wurden nach dem Aufnehmen mithilfe von COCO Annotator \footnote{https://github.com/jsbroks/coco-annotator} annotiert.
-Dabei wurden zwei Klassen verwendet: {\it Brick} und {\it Stair}.
+Die Trainingsdaten wurden nach dem Aufnehmen mithilfe von COCO Annotator \footnote{\url{https://github.com/jsbroks/coco-annotator}} annotiert.
+Dabei wurden zwei Klassen verwendet: {\it Brick} und {\it Stair}. Die Trainingsdaten bestehen aus dem COCO Datenformat. \footnote{\url{https://cocodataset.org/\#format-data}}
 
 \image{img/CNN/coco-stair}{
-Annotieren der Trainingsdaten im COCO Datenformat \footnote{\url{https://cocodataset.org/#format-data}}.
+Annotieren der Trainingsdaten im COCO Datenformat
 }
+
+\newpage
 
 \subsubsection{Trainieren des \acrshort{cnn}}
 
-Als vorlage für das Trainieren wurde das offizielle Notebook von detectron2 verwendet. \cite{detectron2-colab}
+Als Vorlage für das Trainieren wurde das offizielle Notebook von detectron2 verwendet. \cite{detectron2-colab}
 
 Um das \acrshort{cnn} zu trainieren und auch die Performance zu evaluieren, werden die annotierten Trainingsdaten
 in Train- (70\%), Test- (20\%) und Validationsset (10\%) unterteilt.
@@ -221,7 +278,7 @@ trainer.train()
   \label{fig:model-performance}
 \end{figure}
 
-Wie in \ref{model-performanc} gezeigt, wurden verschiedene Konfigurationen ausprobiert 
+Wie in \ref{fig:model-performance} gezeigt, wurden verschiedene Konfigurationen ausprobiert 
 (sogenanntes Hyperparameter tuning \footnote{\url{https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)}}).
 
 Am Schluss wurde das Model mit der besten Performance ausgewählt, welches nicht overfitted war.
@@ -233,7 +290,7 @@ oder hat diese sogar noch schlechter gemacht.
 
 \subsection{Model Performance}
 
-Um die Perofmance des Models zu messen, werden die 'Truely unseen Validationdata' verwendet:
+Um die Performance des Models zu messen, werden die 'Truely unseen Validationdata' verwendet:
 
 \begin{minted}{python}
 from detectron2.data import DatasetCatalog, MetadataCatalog, build_detection_test_loader
@@ -245,8 +302,8 @@ val_loader = build_detection_test_loader(cfg, "stair_validation")
 inference_on_dataset(trainer.model, val_loader, evaluator)
 \end{minted}
 
-Dabei werden die Validationsdaten durch das Model Annotiert und danach mit den 'Ground Truth' Daten 
-(also den Manuellen Annotations) verglichen. Dies ergibt danach einen Performance Report.
+Dabei werden die Validationsdaten durch das Model annotiert und danach mit den 'Ground Truth' Daten 
+(also den Manuellen Annotations) verglichen. Dies ergibt anschliessend einen Performance Report.
 
 \begin{minted}{text}
 |   AP   |  AP50  |  AP75  |  APs   |  APm   |  APl   |
@@ -275,8 +332,8 @@ kann die zu erwartende Performance abgeschätzt werden.
   \label{fig:path-finding}
 \end{figure}
 
-Wie in Abbildung \ref{path-finding} gezeigt, werden zuerst die Predictions
+Wie in Abbildung \ref{fig:path-finding} gezeigt, werden zuerst die Predictions
 des Models (oben rechts) in eine Matrixstruktur umgerechnet (unten links).
 Der optimale Pfad wird danach mittels A-Star \footnote{\url{https://en.wikipedia.org/wiki/A*_search_algorithm}} Path-Finding
-Algorithmus berechnet (unten rechts). Bei der Berechnung wird angenommen (wie inder Aufgabenstellung erwähnt),
-dass sich auf der ersten und letzten Treppenstufe keine Ziegelsteine befinden.
+Algorithmus berechnet (unten rechts). Bei der Berechnung wird angenommen (wie in der Aufgabenstellung erwähnt),
+dass sich auf der letzten Treppenstufe keine Ziegelsteine befinden.

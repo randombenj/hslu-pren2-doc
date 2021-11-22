@@ -1,0 +1,172 @@
+\newpage
+
+\section{Berechnungen}
+
+\textbf{Notwendiges Moment bei der Hubbewegung}
+
+Bei der Hubbewegung wird das grösste Moment am Anfang benötigt, wenn sich der Grundkörper zu heben beginnt. Die Verbindungsleisten und die Zahnriemen wurden für diese Berechnung vernachlässigt.
+
+Gewicht Grundkörper: $m_{GK}$ = 2.85 kg
+
+Abstand Schwerpunkt Grundkörper zur Drehachse (Welle 1): $l_{1}$ = 52 mm
+
+Abstand Drehachse Welle 1 zur Drehachse Auslegerwelle: $l_{3}$ = 235 mm
+
+\begin{align*}
+M_{erf} = m_{GK} \cdot g \cdot (l_{3}-l_{1}) = 2.85\ kg \cdot 9.81\ \frac{m}{s^2} \cdot 0.183\ m = 5.1\ Nm
+\end{align*}
+
+Dieses Moment von 5.1 Nm ist das grösste Moment, dass die Auslegerwelle und die Welle 1 übertragen. Das Moment auf diesen Wellen ist identisch, da der Zahnriementrieb eine 1:1 Übersetzung aufweist.
+
+Übersetzungsverhältnis Hubmotor - Welle 1: $i_{1}$ = 3.06
+
+\begin{align*}
+M_{Hubmotor} = \frac{M_{erf}}{i_{1}} = \frac{5.1\ Nm}{3.06} = \underline{\underline{1.67 Nm}}
+\end{align*}
+
+
+
+\textbf{Geradehalten des Grundkörpers bei der Hubbewegung}
+
+Bei der Hubbewegung wird der Grundkörper gerade gehalten.
+
+Gewicht Grundkörper: $m_{GK}$ = 2.85 kg
+
+Abstand Schwerpunkt Grundkörper zur Drehachse (Welle 1): $l_{1}$ = 52 mm
+
+\begin{align*}
+M_{halten} = m_{GK} \cdot g \cdot (l_{1}) = 2.85\ kg \cdot 9.81\ \frac{m}{s^2} \cdot 0.052\ m = 1.5\ Nm
+\end{align*}
+
+Dieses Moment muss kompensiert werden, um den Grundkörper gerade halten zu können während der Hubbewegung. Dies wird mit den zweiten Zahnradpaaren, die sich an der Seite des grundkörpers befinden, erreicht.
+
+Übersetzungsverhältnis Welle 1 - Welle 2: $i_{2}$ = 2
+
+\begin{align*}
+M_{Welle 2} = \frac{M_{halten}}{i_{2}} = \frac{1.5\ Nm}{2} = \underline{\underline{0.75 Nm}}
+\end{align*}
+
+\newpage
+
+\textbf{Bestimmung der Wellendurchmesser}
+
+Die Wellendurchmesser wurden mithilfe der berechneten Momente, die auf den Wellen wirken, bestimmt.\\
+
+\textbf{Welle 1}
+
+vorhandenes Moment: $M_{t}$ = 5.1 Nm
+
+Material: Aluminium 6082 T6 \footnote{https://link.springer.com/content/pdf/bbm\%3A978-3-8348-9496-0\%2F1.pdf}
+
+$\tau_{t,w}$ = 70 N/$mm^{2}$
+
+Sicherheit für Auslegung: S = 3
+
+\begin{align*}
+\tau_{t} = \frac{M_{t}}{W_{t}}
+\end{align*}
+
+\begin{align*}
+W_{t} = \frac{\pi \cdot d^{3}}{16}
+\end{align*}
+
+\begin{align*}
+d_{erf} = \sqrt[3]{\frac{M_{t} \cdot 16}{\pi \cdot \frac{\tau_{t,w}}{S}}} 
+\end{align*}
+
+\begin{align*}
+d_{erf} = \sqrt[3]{\frac{5.1 Nm \cdot 16 \cdot 1000}{\pi \cdot \frac{70 N/mm^{2}}{3}}} = 10.4 mm
+\end{align*}
+
+Für die Welle 1 wurde ein Durchmesser von 15 mm gewählt. Der kleinste Durchmesser bilden die Einstiche für Sicherungsringe auf dem Durchmesser 15 mm: kleinster Durchmesser: 14.3 mm.
+
+
+
+\newpage
+
+\textbf{Welle 2}
+
+vorhandenes Moment: $M_{Welle 2}$ = 0.75 Nm
+
+Material: Aluminium 6082 T6 
+
+$\tau_{t,w}$ = 70 N/$mm^{2}$
+
+Sicherheit für Auslegung: S = 3
+
+\begin{align*}
+\tau_{t} = \frac{M_{t}}{W_{t}}
+\end{align*}
+
+\begin{align*}
+W_{t} = \frac{\pi \cdot d^{3}}{16}
+\end{align*}
+
+\begin{align*}
+d_{erf} = \sqrt[3]{\frac{M_{t} \cdot 16}{\pi \cdot \frac{\tau_{t,w}}{S}}} 
+\end{align*}
+
+\begin{align*}
+d_{erf} = \sqrt[3]{\frac{0.75 Nm \cdot 16 \cdot 1000}{\pi \cdot \frac{70 N/mm^{2}}{3}}} = 5.5 mm
+\end{align*}
+
+Für die Welle 2 wurde ein Durchmesser, der nicht unterschritten werden soll, von 10 mm gewählt.
+
+\newpage
+
+
+
+
+
+
+
+
+\textbf{Auslegerwelle}
+
+vorhandenes Moment: $M_{t}$ = 5.1 Nm
+
+Material: Aluminium 6082 T6
+
+$\tau_{t,w}$ = 70 N/$mm^{2}$
+
+Sicherheit für Auslegung: S = 3
+
+\begin{align*}
+\tau_{t} = \frac{M_{t}}{W_{t}}
+\end{align*}
+
+\begin{align*}
+W_{t} = \frac{\pi \cdot d^{3}}{16}
+\end{align*}
+
+\begin{align*}
+d_{erf} = \sqrt[3]{\frac{M_{t} \cdot 16}{\pi \cdot \frac{\tau_{t,w}}{S}}} 
+\end{align*}
+
+\begin{align*}
+d_{erf} = \sqrt[3]{\frac{5.1 Nm \cdot 16 \cdot 1000}{\pi \cdot \frac{70 N/mm^{2}}{3}}} = 10.4 mm
+\end{align*}
+
+Für die Auslegerwelle wurde ein Durchmesser von 15 mm gewählt. Der kleinste Durchmesser bilden die Einstiche für Sicherungsringe auf dem Durchmesser 15 mm: kleinster Durchmesser: 14.3 mm.
+
+\newpage
+
+\textbf{Dimensionierung des Geräts}\\
+
+Grundkörper\\
+
+Der Grundkörper ist ohne Haube 250 mm lang, 150 mm breit und 200 mm hoch. Die Breite ist abhängig von der Länge des Hubmotors, da der quer im Gerät verbaut ist. Die Höhe des Geräts ist ohne den Startknopf, NOTAUS-Schalter und LED's der Höhe einer Treppenstufe angepasst. So sind die oberen beiden Ultraschallsensoren auf der richtigen Höhe, um die Fläche der Stufen erkennen zu können.
+
+Die Länge des Geräts ist so, dass sich das Gerät in der kleinstmöglichen Lücke auf der Treppe (400 mm) drehen kann, ohne die Hindernissen bei der Drehung zu berühren. Dabei soll sich das Gerät in der Mitte einer Lücke drehen. Zusätzlich musste es lang genug gemacht werden, um alle notwendigen Komponenten verbauen zu können.
+
+\begin{align*}
+Diagonale = \sqrt{l^{2} + b^{2}} = \sqrt{(250 mm)^{2} + (150 mm)^{2}} = 291.55 mm
+\end{align*}
+
+Da die Räder sich in Längsrichtung in der Mitte befinden, ist die Drehachse bei der Drehung im Mittelpunkt des Grundkörpers.
+
+Dreht sich das Gerät nach einer Stufenerklimmung um $90^\circ$, um sich auf einer Treppenstufe zu verschieben, befinden sich die Ausleger vorne am Gerät und die Drehung um $90^\circ$ ist möglich, da der Drehradius des Geräts kleiner als 200 mm ist. Für das Zurückdrehen nach der Verschiebung werden die Ausleger nach oben gefahren, damit der Drehradius klein genug ist, um in der Mitte einer Lücke zurückdrehen zu können.\\
+
+Ausleger\\
+
+Die Grösse der Ausleger wurde im \acrshort{pren1} bereits anhand der Dimensionen der Treppe bestimmt und für die Realisierung des Geräts so übernommen.

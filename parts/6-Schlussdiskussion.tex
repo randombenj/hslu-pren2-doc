@@ -1,20 +1,18 @@
 \newpage
 \section{Schlussdiskussion}
 
-In diesem Bereich werden die Kosten für die Umsetzung und Entwicklung des Prototypen aufgelistet. Dabei werden die finanziellen Kosten aber auch der zeitliche Aufwand betrachtet. Zudem wird im Bereich "Lessons learned" aufgezeigt, was in diesem Projekt für Erfahrungen mitgenommen werden können. Ein kurzer Ausblick beendet diesen Teilbereich der Dokumentation.
-
-TODO: Fertig stellen
+In diesem Abschnitt werden die Kosten für die Umsetzung und Entwicklung des Prototypen aufgelistet. Dabei werden die finanziellen Kosten aber auch der zeitliche Aufwand betrachtet. Zudem wird im Bereich \glqq Lessons learned \grqq{} aufgezeigt, was in diesem Projekt für Erfahrungen mitgenommen werden können. Ein kurzer Ausblick beendet diesen Teilbereich der Dokumentation.
 
 \subsection{Entwicklungskosten}
 
-Die Kosten eines Projektes sind entscheidend. Deshalb wurde dieses Thema bereits früh an fokussiert. Im Pren1 wurde eine Liste mit den erwarteten Preisen erstellt, aufgrund welcher im Pren2 bereits in den ersten Semesterwochen die Teile eingekauft wurden. Mit dieser Vorgehensweise kann zuverlässig die Kostengrenze eingehalten werden.
+Die Kosten eines Projektes sind entscheidend. Deshalb wurde dieses Thema bereits früh an fokussiert. Im  PREN 1 wurde eine Liste mit den erwarteten Preisen erstellt, aufgrund welcher im PREN 2 bereits in den ersten Semesterwochen die Teile eingekauft wurden. Mit dieser Vorgehensweise kann zuverlässig die Kostengrenze eingehalten werden.
 
-Im Pren1 wurden bereits zwei Zahnriemen für die Realisierung des ersten Funktionsmusters angeschafft. Die restlichen Kosten sind im Pren2 entstanden und werden nachfolgend aufgeführt.
+Im PREN 1 wurden bereits zwei Zahnriemen für die Realisierung des ersten Funktionsmusters angeschafft. Die Gesamtkosten werden anschliessend aufgeführt.
 
 \begin{center}
 \centering
 \begin{table}[H]
-\begin{tabular}{|l|r|r|r|}
+\begin{tabularx}{\textwidth}{|X|l|X|X|}
 \hline 
 \textbf{Bezeichnung} & \textbf{Anzahl} &
 \textbf{Stückpreis [CHF]} & \textbf{Gesamtkosten [CHF]} \\
@@ -25,47 +23,53 @@ Hilfsmotor & 1 & 20.95 & 20.95 \\
 \hline
 H-Brücke T & 2 & 1.20 & 2.40 \\
 \hline
-Zahnriemen für Prototyp (Pren1) & 2 & 4.95 & 9.90 \\
+Zahnriemen für Prototyp & 1 & 4.95 & 4.95 \\
 \hline
-Zahnriemen (Pren2)  & 2 & X & X \\
+Zahnriemen (Pren2)  & 2 & 20.48 & 40.96 \\
 \hline
-Kugellager & 2 & X & X \\
+Kugellager & 2 & 8.78 & 17.56 \\
+\hline
+Kugellager 2 & 2 & 7.40 & 14.80  \\
 \hline
 Taster & 3 & 0.05  & 0.15 \\
 \hline
-Schrauben div. & 0 & 0 & 0.00 \\
+Fortbewegungsmotoren & 2 & 17.37 & 34.75 \\
 \hline
-Fortbewegungsmotoren mit Encoder & 2 & 17.37 & 34.75 \\
+Radnaben & 2 & 3.50 & 7.00 \\
 \hline
-TOF & 2 & 13.25 & 26.5 \\
-\hline
-Ultraschall & 2 & 0.50 & 1 \\
+Ultraschall & 3 & 1.50 & 4.50 \\
 \hline
 Schalter & 1 & 0.10 & 0.10 \\
 \hline
 LED & 4 & 0.05 & 0.20 \\
 \hline
-Pi-Kamera V2 & 1 & 29.90 & 29.90 \\
+Pi-Kamera V2 & 1 & 27.75 & 27.75 \\
 \hline
-Kamerakabel & 1 & 5.90 & 5.90 \\
+Kamerakabel & 1 & 5.50 & 5.50 \\
 \hline
 Nvidia Jetson Nano & 1 & 111.65 & 111.65 \\
 \hline
-Akku & 1 & 29.95 & 29.95 \\
+Akku & 2 & 29.95 & 59.90\\
 \hline
 Lüfter & 1 & 4.25 & 4.25 \\
 \hline
-Multiplexer & 1 & 6.60 & 6.60 \\
+Multiplexer & 2 & 6.60 & 13.20 \\
 \hline
-Spannungsregler (DC-DC) & 1 & 4.65 & 4.65 \\
+Spannungswandler & 1 & 4.65 & 4.65 \\
 \hline
-PLA-Filament (3D-Drucker) & 2kg & 24.90 & 24.90 \\
+PWM-Extension Board & 1 & 11.90 & 11.90 \\
+\hline
+Jumper Kabel & 1 & 6.50 & 6.50 \\
+\hline
+microSDXC 128GB & 1 & 26.70 & 26.70 \\
+\hline
+PLA-Filament & 1kg & 24.90 & 24.90 \\
 \hline
 
 \hline \hline 
- \textbf{Subtotal} &&& \textbf{CHF XXX.XX}\\
+ \textbf{Subtotal} &&& \textbf{CHF 484.12}\\
 \hline 
-\end{tabular}
+\end{tabularx}
 \caption[Entwicklungskosten]{Entwicklungskosten}
 \label{tab:kosten}
 \end{table}
@@ -76,85 +80,89 @@ PLA-Filament (3D-Drucker) & 2kg & 24.90 & 24.90 \\
 \subsection{Entwicklungsaufwand}
 
 In den Entwicklungsaufwand wird nicht nur die Arbeit am Prototypen eingerechnet, sondern auch die aufgewendete Zeit für weitere Recherche und Tests ohne Roboter.
-Nachfolgend ist diese Auflistung dargestellt.
+Die nachfolgende Auflistung bezieht sich nur auf die 15 Semesterwochen. Die zusätzliche Arbeitszeit zwischen Semester und Wettbewerb wird nicht eingerechnet.
 
 \begin{center}
 \begin{table}[H]
-\begin{tabular}{|l|r|r|r|r|}
+\begin{tabularx}{\textwidth}{|X|X|X|X|X|}
 \hline
 \textbf {Was} & \textbf{Aufwand [h]} &
 \textbf{Anzahl Personen} & \textbf{Anzahl Wochen} & \textbf{Subtotal [h]}\\
 \hline
 Pren Block Donnerstag & 3.5 & 6 & 15 & 315 \\
 \hline
-Pren Block Freitag & 3.5 & 6 & 15 & 315 \\
+Pren Block Freitag & 4 & 6 & 15 & 360 \\
 \hline
-Freizeitaufwand (E) & 3.5 & 2 & 15 & 105 \\
+Pren Block Samstag & 3.5 & 4 & 8 & 112 \\
 \hline
-Freizeitaufwand (I) & 3.5 & 2 & 15 & 105 \\
+Freizeitaufwand (E) & 4 & 2 & 15 & 120 \\
 \hline
-Freizeitaufwand (M) & 3.5 & 2 & 15 & 105 \\
+Freizeitaufwand (I) & 5.5  & 2 & 15 & 165 \\
 \hline
-Total: & & & & 945 \\ \hline
-\end{tabular}
+Freizeitaufwand (M) & 5 & 2 & 15 & 150 \\
+\hline
+Total: & & & & 1222 \\ \hline
+\end{tabularx}
 \caption[Entwicklungsaufwand]{Entwicklungsaufwand}
 \label{tab:entwicklungsaufwand}
 \end{table}
 \end{center}
 
+\newpage
+
 \subsection{Lessons Learned}
+
 
 Ein Projekt der Grösse von Pren2 ist für das gesamte Team ein Novum. Dabei konnten viele Dinge gelernt werden, welche sich ausschliesslich auf Arbeiten an einem Prototypen beziehen.
 
-So wurde realisiert, dass ein Prototyp bereits früh umgesetzt werden sollte um so schnell wie möglich erste Funktionen zu testen und auf diesem Prototypen aufbauen zu können. Ebenfalls wurde gelernt, das ein solcher erster Prototyp aus 3D-gedrucktem Filament einfach, schnell und flexibel auf Änderungen ist. Dieses Filament hat jedoch auch Nachteile. Spezifisch die Querstabilität einzelner Teile darf nicht vernachlässigt werden und im fertigen Produkt sollten keine gedruckten Teile beinhalten. Trotzdem können auch stark belastete Zahnräder funktionieren, wenn auf das Material und die Voraussetzungen eingegangen wird und die Teile dementsprechen angepasst werden. Ausserdem währe ein selbstgezeichnetes PCB eine Vereinfachung für das Kabelmanagement gewesen. 
+So wurde realisiert, dass ein Prototyp bereits früh umgesetzt werden sollte, um so schnell wie möglich erste Funktionen zu testen und auf diesem Prototypen aufbauen zu können. Ebenfalls wurde gelernt, das ein solcher erster Prototyp aus 3D-gedrucktem Filament einfach, schnell und flexibel auf Änderungen ist. Ausserdem wäre ein selbst erstelltes PCB eine Vereinfachung für das Kabelmanagement gewesen, womit einige Probleme mit Wackelkontakten hätten verhindert werden können.
+Des weiteren wäre für die Kontrolle und die zuverlässige Ansteuerung der Sensoren ein Microcontroller von Vorteil gewesen. Damit wäre eine zeitliche Steuerung und zeitliche Abmessung vereinfacht und genauer durchführbar gewesen. Das Einkaufen der Komponente sollte nicht dem Zufall überlassen werden. So ist es wichtig, sicherzustellen, dass die Teile tatsächlich bestellt und nicht vergessen wurden. Eine weitere Lektion die gelernt wurde ist, dass darauf geachtet werden sollte, dass die Encoder eine genügende Auflösung bieten. Und wenn eine genügende Auflösung nicht erreicht werden kann, sollte eine bessere Auflösung durch genauere Encoder oder eine Übersetzung erreicht werden. Falls dies nicht möglich ist, sollte eine  Alternative beispielsweise mit einer Kamera oder Distanzsensoren eingebunden werden, mit welcher die Drehung überprüft und kontrolliert werden kann. Dies um sicherzustellen, dass eine 90\textdegree\ Drehung genau und reproduzierbar erreicht werden kann.
 
-Im Bezug zur Gruppenarbeit konnten viele Dinge mitgenommen werden. So ist die Kommunikation zwischen den Teammitgliedern entscheidend. Ausserdem wurde erkannt, dass je weiter der Prototyp fortschreitet die Disziplinen verschwimmen und in gewissen Situationen jeder in allen Disziplinen aushelfen kann. Es war entscheidend, diese Auflösung der Disziplinen aufrecht zu erhalten. So konnte viel Wissen weitergegeben werden.
+Im Bezug zur Gruppenarbeit konnten viele Dinge mitgenommen werden. So ist die Kommunikation zwischen den Teammitgliedern entscheidend. Ausserdem wurde erkannt, dass je weiter der Prototyp fortschreitet die Disziplinen verschwimmen und in gewissen Situationen jeder in allen Disziplinen aushelfen kann und sollte. Es war entscheidend, diese Auflösung der Disziplinen aufrecht zu erhalten. So konnte viel Wissen weitergegeben werden und das meiste aus dem Prototypen herausgeholt werden.
 
-Das Projektmanagement ist von entscheidender Bedeutung für die realisierung eines solchen Projektes. Auch hier konnten einige Dinge verinerlicht werden. So ist ein gutes Konzept wichtig. Das Konzept aus Pren1 war sehr detailliert, was im Pren2 viele Situationen mit Problemen einfacher gestaltete. Ausserdem sollten keine zu grossen Änderungen inmitten des Projektes durchgeführt werden ohne genügende und saubere Vorbereitung. Der Wechsel des Raspberry Pis auf das Nvidia Jetson hat unnötig viel Zeit gekostet jedoch waren mit diesem Wechsel auch Erfahrungen verknüpft womit ein solche Situation in zukünftigen Projekten nicht mehr eintreten sollte. Die ausergewöhnliche Gegebenheit mit Corona hat den Teammitgliedern viel Flexibilität abverlangt. Das ist ein weiterer Punkt, welcher in einer solchen Arbeit wichtig ist. Es gab insgesamt zwei Ausfälle aufgrund einer Erkrankung oder Quarantäne in welcher die restlichen Teammitglieder flexibel und zuverlässig einspringen konnte.
-
-
-
-\subsection{Kritische Würdigung der Arbeit}
-
-Das Projekt ist gut gelaufen. Das Team hat fantastisch Zusammengearbeitet. Die Dokumentation ist detailliert und umfangreich. Der Roboter selbst ist ausgereift und funktioniert. Es gibt jedoch einige Punkte welche besser hätten umgesetzt werden können. So hätte der Antrieb der Fortbewegung übersetzt werden oder mit einem besseren Encoder versehen sollen. Dies auschliesslich um die Genauigkeit der Räder besser bestimmen zu können.
-
-
-\subsection{Offene Punkte, Risiken, Ausblick}
-
-TODO: Offene Punkte
+Das Projektmanagement ist von entscheidender Bedeutung für die Realisierung eines solchen Projektes. Auch hier konnten einige Dinge verinnerlicht werden. So ist ein gutes Konzept wichtig. Das Konzept aus \acrshort{pren1} war sehr detailliert, was im \acrshort{pren2} viele Situationen mit Problemen einfacher gestaltete. Ein weiterer Punkt ist, dass bezüglich der Sprintplanung die Software Gitlab hätte verwendet werden können. Dadurch ergibt sich die Möglichkeit, einzelne Issues für die Sprints aufzulisten, abzuarbeiten und die aufgewendete Zeit einzutragen. Zum Schluss können die Burn-Down-Charts der Sprint ausgegeben werden und in der Dokumentation beschrieben werden. Ausserdem sollten keine zu grossen Änderungen inmitten des Projektes durchgeführt werden ohne genügende und saubere Vorbereitung. Der Wechsel des Raspberry Pi's auf das Nvidia Jetson Nano hat unnötig viel Zeit gekostet, jedoch waren mit diesem Wechsel auch Erfahrungen verknüpft, womit ein solche Situation in zukünftigen Projekten nicht mehr eintreten sollte.
+Die aussergewöhnliche Gegebenheit mit Corona hat den Teammitgliedern viel Flexibilität abverlangt. Das ist ein weiterer Punkt, welcher in einer solchen Arbeit wichtig ist. Es gab insgesamt zwei Ausfälle aufgrund einer Erkrankung oder Quarantäne in welcher die restlichen Teammitglieder flexibel und zuverlässig einspringen konnte.
 
 \newpage
 
-\subsubsection{Ausblick}
+\subsection{Kritische Würdigung der Arbeit}
 
-Das Projekt wird mit dem Ende des Moduls Pren2 und dem Wettbewerb beendet. Es ist nicht geplant, an diesem Prototypen weiterzuarbeiten.
+Das Projekt ist gut gelaufen. Das Team hat gut zusammengearbeitet. Die einzelnen Module des Roboters funktionieren. Die Dokumentation ist detailliert und umfangreich. Es gibt jedoch einige Punkte, welche besser hätten umgesetzt werden können. So hätte der Antrieb der Fortbewegung übersetzt werden oder mit einem besseren Encoder versehen werden sollen. Dies ausschliesslich um die Genauigkeit der Räder besser bestimmen zu können. Ein Encoder für die Hubbewegung hätte auch einige Probleme vereinfacht.
+
+Das Fortbewegungskonzept wurde aufgrund der Einfachheit gewählt. Ein alternatives Konzept, bei welchem sich der Roboter seitlich verschieben kann ohne sich abzudrehen, wäre im Nachhinein unter Umständen ein einfacherer Ansatz gewesen.
 
 
+\subsection{Offene Punkte}
 
-\subsubsection{Risiken}
+Es gäbe verschiedene Möglichkeiten, den Roboter zu verbessern, für welche jedoch die Zeit fehlt. So wäre es interessant gewesen, zu sehen, wie der Roboter sich mit besseren TOF oder Ultraschallsensoren verhaltet. 
 
-Viele Risiken können mithilfe eines konsequenten Risikomanagements drastisch reduziert werden. Im Pren1 konnten bereits einige Risiken für das Modul Pren2 identifiziert werden, welche im Prototypenbau systematisch umgangen oder vermindert werden konnten. Die vollständige, iterativ/inkrementell erstellte, Risikoliste mit den entsprechenden Korrekturmassnahmen ist im Anhang zu finden. Die schwerwiegensten Risiken werden nachfolgend kurz erläutert.
+Des weiter ist die Positionsbestimmung vor der Treppe mit den Distanzsensoren und Trigonometrie nicht besonders ausgereift. Hierfür wäre allenfalls ein Modul, welches die Position vor der Treppe anhand des Geländers und der Stufen mithilfe der Kamera und Bildverarbeitung berechnet, besser geeignet beziehungsweise genauer.
+
+
+\subsection{Ausblick}
+
+Das Projekt wird mit dem Ende des Moduls \acrshort{pren2} und dem Wettbewerb beendet. Es ist nicht geplant, an diesem Prototypen weiterzuarbeiten. Der Roboter wird nach Abschluss der Hochschule Luzern übergeben.
+
+Ein weiterführbarkeit des Projektes wäre jedoch gegeben. Neben den bereits verbauten Motoren ist sowohl der Platz, eine freie H-Brücke wie auch mehrere PWM Signalgeber für Upgrades vorhanden. Die Akkukapazität würde etwaige Erweiterung ebenfalls unterstützen. Das vorhandene 5 Volt Niveau wie auch mehrere freie Pins am Jetson könnten gegebenenfalls für weitere Sensoren oder allgemeine Komponente verwendet werden.
+
+\newpage
+
+\subsection{Risiken}
+
+Viele Risiken können mithilfe eines konsequenten Risikomanagements drastisch reduziert werden. In diesem Abschnitt werden die grössten Risiken bezüglich des Wettbewerbes aufgelistet.
 
 \begin{center}
 \begin{table}[H]
-    \begin{tabularx}{\textwidth}{|l|X|X|}
+    \begin{tabularx}{\textwidth}{|X|X|}
         \hline
-        \textbf{ID} & \textbf{Titel} & \textbf{Vorbeugende Massnahmen} \\ \hline
-        R15 & Anschlag bei Drehbewegung in der Nähe eines Hindernisses bei minimalem Durchgang von 400 mm. & Lösungskonzept erarbeiten oder Dimension so wählen, dass Rotation immer möglich ist. \\ \hline
-        R18 & Hindernisse werden nicht erkannt & Früh im PREN2 testen und Lichtverhältnisse miteinkalkulieren. \\ \hline
-        R17 & Nicht alle Aspekte bei der Berechnung der Hubbewegung miteinkalkuliert. Hubbewegung funktioniert nicht. & Möglichst früh in \acrshort{pren2}, die Hubbewegung testen.\\ \hline
+        \textbf{Titel} & \textbf{Vorbeugende Massnahmen} \\ \hline
+        Genaues Ausrichten vor der Treppe nicht möglich & TOF-Sensoren mit Ultraschall ausgetauscht. Code ausgiebig überarbeitet. \\ \hline
+        Rotation auf der Treppe ungenau & Vielzahl an Tests und weiterausarbeitung des Codes. Die Drehung mithilfe der Sensoren überprüfen und nachbessern.
+        \\ \hline
+       Guten Punkte des Roboters können nicht gezeigt werden & Die ersten Schritte des Ablaufes werden weiter verfeinert, um sicherzustellen, dass der Roboter seine Stärke, das Treppensteigen, ausführlich demsonstrieren kann. 
+       \\ \hline
     \end{tabularx}
-    \caption{Top 3 Risiken in Hinsicht auf PREN2}
-    \label{tab:risikomanagement-ausblick}
+    \caption{Top 3 Risiken in Hinsicht auf Wettbewerb}
+    \label{tab: }
 \end{table}
 \end{center}
-
-
-
-
-
-
-
-
-
-

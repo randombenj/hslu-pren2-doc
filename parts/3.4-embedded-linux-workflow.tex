@@ -6,19 +6,19 @@ In den nachfolgenden Abschnitten wird kurz vorgestellt, wie der Entwicklungsproz
 \subsection{Verwendete Versionen}
 Es wird das bereits vorinstallierte Python 3.6 verwendet. In Kombination zu Python 3.6 wurde die aktuelle Version von pip 21.0 installiert. Um zu gewährleisten, dass die richtige Version von pip verwendet wird, empfiehlt es sich, pip über den python3 Befehl aufzurufen.
 
-Möchte man beispielsweise numpy über pip installieren, kann folgender Befehl verwendet werden:
+Möchte beispielsweise numpy über pip installiert werden, kann folgender Befehl verwendet werden:
 \begin{minted}{bash}
 python3 -m pip install numpy
 \end{minted}
 
-Die Versionen der verwendeten Python Packages werden im File requirements.txt festgehalten. Mithilfe von pip kann man sämtliche Packages mit den entsprechenden Versionen aus der Datei installieren.
+Die Versionen der verwendeten Python Packages werden im File \texttt{requirements.txt} festgehalten. Mithilfe von pip können sämtliche Packages mit den entsprechenden Versionen aus der Datei installieren werden.
 
 \begin{minted}{bash}
 python3 -m pip -r install requirements.txt
 \end{minted}
 
 \subsection{SSH Verbindung}
-Da das Jetson standardmässig kein kein WLAN-Modul verfügt, wird eine statische IP (192.168.137.153) für das Interface eth0 eingerichtet. Das Standard Gateway dieser statischen IP ist 192.168.137.1/255.255.255.0. Damit über ein Ethernet Kabel direkt auf das Jetson zugegriffen werden kann, muss dem entsprechenden Netzwerkinterface auf der Hostmaschine die IP des Default Gateways des Jetsons, also 192.168.137.1/255.255.255.0, zugewiesen werden. Somit kann über die IP 192.168.137.153 eine SSH Verbindung über Ethernet zum Jetson hergestellt werden. Damit das Jetson jedoch auch mit dem Internet verbunden ist, muss noch die aktuelle Internetverbindung mit dem entsprechenden Ethernet Interface geteilt werden. Dies geht unter Windows einfach über die Adapteroptionen in den Netzwerkeinstellungen.
+Da das Jetson standardmässig kein WLAN-Modul verfügt, wird eine statische \\ IP (192.168.137.153) für das Interface eth0 eingerichtet. Das Standard Gateway dieser statischen IP ist 192.168.137.1/255.255.255.0. \\ Damit über ein Ethernet Kabel direkt auf das Jetson zugegriffen werden kann, muss dem entsprechenden Netzwerkinterface auf der Hostmaschine die IP des Default Gateways des Jetsons, also 192.168.137.1/255.255.255.0, zugewiesen werden. Somit kann über die IP 192.168.137.153 eine SSH Verbindung über Ethernet zum Jetson hergestellt werden. Damit das Jetson jedoch auch mit dem Internet verbunden ist, muss noch die aktuelle Internetverbindung mit dem entsprechenden Ethernet Interface geteilt werden. Dies geht unter Windows einfach über die Adapteroptionen in den Netzwerkeinstellungen.
 
 \subsubsection{Terminal}
 Um den Workflow noch zu beschleunigen, wurde ein entsprechender SSH Public Key auf dem Jetson platziert (\textasciitilde/.ssh/authorized\_keys). Dies ermöglicht eine Verbindung zum Jetson ohne die Eingabe eines Passwortes. Auf der Hostmaschine wurde in der Datei config im .ssh Order ein Host für das Jetson konfiguriert.
@@ -37,6 +37,24 @@ ssh jetson
 
 \subsubsection{Putty}
 Dasselbe wurde für Putty vorgenommen. Da Putty jedoch sein eigenes SSH Keyformat verwendet, musste der entsprechende Public Key welcher sich bereits auf dem Jetson befindet in ein Putty Public Key (.ppk) konvertiert werden. Dieser wurde ebenfalls in das File \textasciitilde/.ssh/authorized\_keys kopiert. 
+
+\subsubsection{WLAN}
+Zu einem späteren Zeitpunkt des Entwicklungsprozesses wurde die SSH-Verbindung zum Jetson Nano mithilfe eines WLAN-Dongles hergestellt. Hierbei ist auf Linux-Kompatibilität zu achten. Mit dem tp-link TL-WN725N\footnote{https://www.tp-link.com/us/home-networking/usb-adapter/tl-wn725n/} wurden schlechte Erfahrungen gemacht. Für diesen war das EEE-Netz der Hochschule Luzern nicht sichtbar. Besser funktioniert hat der tp-link Archer-T3U\footnote{https://www.tp-link.com/us/home-networking/usb-adapter/archer-t3u/} obschon für diesen keine Linux Kompatibilität angegeben wurde. 
+
+Das Jetson Nano wurde mit seiner MAC-Adresse auf dem EEE-Portal \footnote{eportal.hslu.ch} der Hochschule Luzern registiert. Dieses Portal weist dem registrierten Gerät dann eine statische IP innerhalb des Hochschulnetze zu. Hierfür muss der wpa\_supplicant Service \footnote{https://wiki.archlinux.org/title/Wpa\_supplicant} installiert werden. Die Konfiguration des EEE-Netzes erfolgt über das File \texttt{/etc/wpa\_supplicant/wpa\_supplicant.conf}. Folgender Eintrag wurde gemacht:
+
+\begin{minted}{bash}
+network={
+    ssid="EEE"
+    scan_ssid=1
+    key_mgmt=WPA-EAP
+    eap=PEAP
+    identity="eee-000??"
+    password="?????????"
+}
+\end{minted}
+
+Identity und Passwort werden zugewiesen und sind auf dem EEE-Portal ersichtlich.
 
 \subsection{Git Workflow}
 \subsubsection{Git remote repository}
@@ -60,7 +78,7 @@ git push live +master:refs/heads/master
 \end{minted}
 
 
-Somit war es möglich auf dem Notebook zu entwickeln und die änderungen immer direkt mit dem Befehl: git push live auf das Jetson zu pushen. Der grosse Nachteil hierbei ist, dass jegliche Änderungen am Code immer zuerst committed werden bevor diese auf dem Jetson getestet werden können. Die sorgt für eine sehr unübersichtliche Commithistory. Aus diesem Grund wurde ab Sprint 3 die nachfolgende Variante umgestiegen.
+Somit war es möglich auf dem Notebook zu entwickeln und die Änderungen direkt mit dem Befehl: git push live auf das Jetson zu pushen. Der grosse Nachteil hierbei ist, dass jegliche Änderungen am Code immer zuerst commmitted werden bevor diese auf dem Jetson getestet werden können. Die sorgt für eine sehr unübersichtliche Commithistory. Aus diesem Grund wurde ab Sprint 3 die nachfolgende Variante umgestiegen.
 
 \subsubsection{VSCode Remote SSH}
-VSCode beitet mit dem Extension Remote - SSH \cite{VSCode-Remote-SSH} an, die Filestruktur eines über SSH verbundenen Geräts im VSCode auf der Hostmaschine zu öffnen. Somit kann man ebenfalls auf dem Notebook entwickeln, greift jedoch direkt auf die Files auf dem Jetson zu und muss diese nicht zuerst pushen. Vorteil ist, dass man so die Commithistory sauber halten kann. Dies ist somit definitiv die bessere Variante für die Entwicklung. Die erste Variante eignet mehr, um bereits getesteten Code auf die Produktivumgebung zu deployen aber nicht für die aktive Entwicklung.
+VSCode bietet mit dem Extension Remote - SSH \cite{VSCode-Remote-SSH} an, die Filestruktur eines über SSH verbundenen Geräts im VSCode auf der Hostmaschine zu öffnen. Somit kann auf dem Notebook entwickelt und auf die Files des Jetson direkt zugegriffen werden, ohne diese zuerst zu pushen. Die Commithistory wird somit übersichtlich gehalten. Dies ist definitiv die bessere Variante für die Entwicklung. Die erste Variante eignet sich mehr, um bereits getesteten Code auf die Produktivumgebung zu deployen aber nicht für die aktive Entwicklung.
